@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar style="position: fixed;">
+    <app-explore-container headerColor="white"></app-explore-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="../../assets/icon/games-title.png" style="position: absolute; transform: translateX(-50%); left: 50%;" [style]="common.platform.height()<700?'width: 285px; top: 9%':'width: 350px; top: 10%'">
+
+  <div style="height: 85%; position: relative; transform: translateY(-50%); top: 60%; overflow: hidden;">
+
+  <div style="position: relative; transform: translateY(-50%); top: 50%;">
+
+    <img class="arrow" src="../../assets/icon/games-arrow.png" [style]="common.platform.height()<700?'width: 12px;':'width: 15px;'">
+    <div class="dot"></div>
+    <div class="dot" style="top: 296px"></div>
+    <div class="dot" style="top: 391px"></div>
+    <!-- <div class="dot" style="top: 498px"></div> -->
+
+    <div style="position: relative; margin: 0 auto; width: 350px;">
+
+      <!-- <img style="width: 180px; position: absolute; transform: translate(-50%, -50%); left: 50%; z-index: 1; top: -82px;" src="../../assets/icon/intro.gif"> -->
+      
+      <img class="squirrel-gif" [src]="gifPath">
+      
+      <!-- <img class="squirrel" src="../../assets/icon/fun-squirrel.png">
+      <div class="squirrel-box">
+        <div style="transform: rotate(90deg); width: 85px; height: 130px; position: absolute; left: 17px; top: -15px;
+        text-align: center;">
+          LETS MAKE LEARNING THIS NEW LANGUAGE EVEN MORE ENJOYABLE WITH GAMES ! LEARNING
+          WHILE PLAYING
+          <br>
+          <br>
+          I AKKU WILL REMAIN BEING YOUR PLAYING
+        </div>
+      </div> -->
+
+    </div>
+
+    <div class="games" style="margin-top: -25px;" (click)="openGames('game1')">
+      <div class="game-title" style="background: #f7f95f;">Save The Fish</div>
+      <div class="inner-box" style="background: #f7f95f;"></div>
+    </div>
+
+    <div class="games" (click)="openGames('game2')" style="top: -15px; left: -90px; transform: rotate(270deg);">
+      <div class="game-title" style="background: #f49ac0; transform: rotate(125deg); left: 18px;">Rearrange The Set</div>
+      <div class="inner-box" style="background: #f49ac0;"></div>
+    </div>
+
+    <div class="games" (click)="openGames('game3')" style="top: -157px;">
+      <div class="game-title" style="background: #f7983e;">Sorting Pictures</div>
+      <div class="inner-box" style="background: #f7983e;"></div>
+    </div>
+
+    <!-- <div class="games" (click)="common.openPage('game4', 1, '')" style="top: -295px; left: -90px; transform: rotate(270deg);">
+      <div class="game-title" style="background: #8bff44; transform: rotate(125deg); left: 25px;">GAME4</div>
+      <div class="inner-box" style="background: #8bff44;"></div>
+    </div> -->
+
+  </div>
+
+  </div>
+  
+</ion-content>

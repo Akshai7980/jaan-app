@@ -1,0 +1,42 @@
+.card{
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 85px;
+    background-size: cover;
+    position: relative;
+    // animation: popIn .2s calc(var(--animation-order) * 200ms) both ease-in;
+}
+
+// @keyframes popIn {
+//     0% {
+//         opacity: 0;
+//         transform: scale(0.6) translateY(-8px);
+//     }
+
+//     100% {
+//         opacity: 1;
+//         transform: none;
+//     }
+// }
+
+.card p{
+    position: absolute;
+    left: 92px;
+    font-size: 17px;
+    color: white;
+    top: 15px;
+}
+
+.number{
+    width: 82px;
+    position: absolute;
+    left: 5px;
+    top: 2px;
+}
+
+.arrow{
+    position: absolute;
+    width: 20px;
+    right: 18px;
+    top: 33px;
+}

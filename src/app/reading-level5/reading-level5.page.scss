@@ -1,0 +1,110 @@
+ion-content{
+    --background: url('../../assets/icon/level5-bg.png') 0 0/100% 100% no-repeat;
+}
+
+.outer-div{
+    margin: 75px auto;
+    width: 68%;
+    // border: 1px solid lightgoldenrodyellow;
+    // height: -webkit-fill-available;
+    height: calc(100% - 154px);
+    position: relative;
+}
+
+// .flash-cards{
+    // height: -webkit-fill-available;
+    // position: relative;
+    // float: left;
+    // margin: 65px 56px auto;
+    // width: 88px;
+// }
+
+.flash-cards img{
+    width: 80px;
+    position: absolute;
+}
+
+.shuffle-button{
+    background-color: #ed3338;
+    color: #ffffff;
+    width: 90px;
+    height: 26px;
+    border-radius: 20px;
+    border: 1px solid;
+    text-align: center;
+    margin-top: -16px;
+    padding-top: 2px;
+    margin-left: 28%;
+}
+
+.round3-cards{
+    width: 100px;
+    height: 140px;
+    border-radius: 15px;
+    background-size: cover;
+    position: absolute;
+    border: 1px solid #ffffff;
+
+    div{
+        background: #ed3338;
+        width: -webkit-fill-available;
+        height: 32px;
+        border-radius: 0 0 15px 15px;
+        position: absolute;
+        color: #ffffff;
+        font-size: 10px;
+        text-align: center;
+        padding-top: 2px;
+        bottom: 0;
+
+        p{
+            transform: translate(0px, -35%);
+        }
+    }
+}
+
+.round-4{
+    width: 320px;
+    height: 215px;
+    background-size: cover;
+    position: absolute;
+    border-radius: 25px 25px 0 0;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 30%;
+
+    #content-box{
+        width: -webkit-fill-available;
+        height: 240px;
+        border-radius: 0 0 15px 15px;
+        position: absolute;
+        color: #ffffff;
+        font-size: 10px;
+        text-align: center;
+        padding-top: 10px;
+        bottom: -239px;
+        background: #ffffff;
+    }
+
+    #heading{
+        color: black;
+        font-size: 18px;
+    }
+
+    #border-line{
+        border-bottom: 1px solid lightgray;
+        position: relative;
+        top: 8px;
+        left: 10px;
+        width: calc(100% - 22px);
+        margin-bottom: 20px;
+    }
+
+    #content{
+        color: black;
+        font-size: 13px;
+        padding: 0 20px 0px 20px;
+        text-align: left;
+        text-align: justify;
+    }
+}

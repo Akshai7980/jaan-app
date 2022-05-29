@@ -1,0 +1,80 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>payment-modal</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <ion-icon id="close" (click)="dismissModal()" style="margin-left: 275px;" name="close-outline" size="large"></ion-icon>
+
+  <div *ngIf="view === 0">
+
+    <div id="text" style="font-size: 15px;"> {{text}} </div>
+    <div style="text-align: center">
+      <ion-button (click)="dismissModal()" shape="round" style="--background: #01a0e4">Not Now
+        <!-- <img src="../../assets/icon/fun-arrow.png"> -->
+      </ion-button>
+      <ion-button (click)="pay()" shape="round">Pay
+        <!-- <img src="../../assets/icon/writing-blue-arrow.png"> -->
+      </ion-button>
+    </div>
+
+  </div>
+
+  <div *ngIf="view === 1">
+
+    <div id="text"> Choose a payment gateway ! </div>
+    <div style="text-align: center">
+      <ion-button (click)="payWithPaypal()" shape="round" style="--background: #01a0e4">PayPal
+        <!-- <img src="../../assets/icon/fun-arrow.png"> -->
+      </ion-button>
+      <ion-button (click)="payWithRazorpay()" shape="round">Razorpay
+        <!-- <img src="../../assets/icon/writing-blue-arrow.png"> -->
+      </ion-button>
+    </div>
+
+  </div>
+
+  <div *ngIf="view === 2">
+
+    <div id="text"> Click Here to Pay ! </div>
+    <div>
+      <div id="paypal-button-container" style="width: 90%; position: relative; left: 5%;"></div>
+    </div>
+
+  </div>
+
+  <div *ngIf="view === 3">
+
+    <div id="text"> Click Here to Pay ! </div>
+    <div style="text-align: center">
+      <!-- <ion-button (click)="payWithRazorpay()" shape="round" style="--background: #01a0e4">Ok -->
+      <ion-button (click)="purchaseInapp()" shape="round" style="--background: #01a0e4">Ok
+        <!-- <img src="../../assets/icon/fun-arrow.png"> -->
+      </ion-button>
+    </div>
+
+  </div>
+
+  <div *ngIf="view === 4">
+
+    <div id="text" style="font-size: 15px;"> You have only {{durationLeft}} days left as a Premium Member. Please renew your membership within {{durationLeft}} to continue using JAAN.   </div>
+    <div style="text-align: center">
+      <ion-button (click)="pay()" shape="round" style="--background: #01a0e4">Ok
+        <!-- <img src="../../assets/icon/fun-arrow.png"> -->
+      </ion-button>
+    </div>
+
+  </div>
+
+  <!-- <div>
+    <div style="--background: #01a0e4">Not Now
+      <img src="../../assets/icon/fun-arrow.png">
+    </div>
+    <div>Pay
+      <img src="../../assets/icon/writing-blue-arrow.png">
+    </div>
+  </div> -->
+  
+</ion-content>

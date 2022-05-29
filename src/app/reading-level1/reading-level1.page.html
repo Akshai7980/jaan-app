@@ -1,0 +1,56 @@
+<ion-header style="z-index: 0; margin-bottom: -20px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: black;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="black"></app-explore-container>
+
+    <div style="height: 136px"></div>
+    <p style="top: 34%; position: absolute; transform: translate(-50%, 0); left: 50%; font-size: 26px; color: black; width: 320px;">Alphabet Section</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left: 12px; padding-right: 12px; position: fixed; z-index: 1; background: white; width: 360px; transform: translate(-50%, 0); left: 50%; margin-top: -5px;">
+    <ion-segment (ionChange)="segmentChanged($event)" mode="md">
+
+      <ion-segment-button value="vowels" [style]="segmentSelected=='vowels'?'background-color: #ef6f02; border-radius: 30px; color: white;':'color: #ef6f02;'">
+        <ion-label class="segment-heading">സ്വരാക്ഷരം</ion-label>
+        <span class="segment-heading-english">Vowels</span>
+      </ion-segment-button>
+
+      <ion-segment-button value="consonants"  [style]="segmentSelected=='consonants'?'background-color: #ef6f02; border-radius: 30px; color: white;':'color: #ef6f02;'">
+        <ion-label class="segment-heading">വ്യഞ്ജനാക്ഷരം</ion-label>
+        <span class="segment-heading-english">Consonants</span>
+      </ion-segment-button>
+
+      <ion-segment-button value="specialAlphabets"  [style]="segmentSelected=='specialAlphabets'?'background-color: #ef6f02; border-radius: 30px; color: white;':'color: #ef6f02;'">
+        <ion-label class="segment-heading">ചില്ലക്ഷരം</ion-label>
+        <span class="segment-heading-english">Special Alphabet</span>
+      </ion-segment-button>
+
+    </ion-segment>
+
+    <div class="border-line"></div>
+
+  </div>
+
+  <div class="card">
+
+    <div class="card-inner" *ngFor="let d of data[i].contents; let index = index" (click)="openMore(d)">
+      <div class="letter-english"> {{d.letterenglish}} </div>
+      <div class="letter"> {{d.letter}} </div>
+      <div style="position: relative; height: 58px;">
+        <img [src]="d?.images[0]" onerror="this.style.display='none'">
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Worksheet / Games -->
+  <app-explore-container aspectId="1" [aspectSubId]="data[i].sublevelid" [worksheet]="data[i].worksheet" [games]="data[i].games"></app-explore-container>
+      
+</ion-content>

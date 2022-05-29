@@ -1,0 +1,58 @@
+<ion-header *ngIf="data.header" style="z-index: 0; margin-bottom: -10px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <!-- <ion-title>listening-inner</ion-title> -->
+
+    <app-explore-container page="listeningInner" headerColor="white"></app-explore-container>
+    
+    <img style="width: 100%; height: 220px;" [src]="data.header">
+  
+    <p style="top: 61%; position: absolute; left: 45px; font-size: 23px; color: whitesmoke">{{data.sectionName}}</p>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <div class="ion-activatable ripple-parent">
+  
+    <img style="top: 20px; position: fixed; left: 20px; width: 10px;" src="../../assets/icon/header-back.png">
+  
+    <img style="top: 20px; position: fixed; right: 83px; width: 16px;" src="../../assets/icon/notification.png">
+    <img style="top: 20px; position: fixed; right: 48px; width: 18px;" src="../../assets/icon/comment.png">
+    <img style="top: 20px; position: fixed; right: 22px; width: 5px;" src="../../assets/icon/more.png">
+    
+    <img src="../../assets/icon/listening-header.png">
+  
+    <p style="top: 68%; position: absolute; left: 31px; font-size: 25px; color: whitesmoke">{{data.sectionName}}</p>
+  
+    <ion-ripple-effect type="bounded"></ion-ripple-effect>
+  
+  </div> -->
+
+<ion-content *ngIf="data.content">
+  <!-- <div style="padding-left: 20px; padding-right: 20px; position: fixed; z-index: 1; margin-top: -4px; width: 100%">
+    <ion-button (click)="playSingleContinousAudio()" class="audio-button" shape="round" expand="block" >{{data.buttonText}}</ion-button>
+  </div> -->
+
+  <!-- <div *ngFor="let d of data.content; let i = index;" [class]="data.sectionName==='Words'?'content-div':''" [style]="i==0?'margin-top: 50px':''"> -->
+    <div *ngFor="let d of data.content; let i = index;" [class]="data.sectionName==='Words'?'content-div':''">
+  
+    <div *ngIf="common.favourites?d.star===1:(d.star===0||d.star===1)">
+
+      <img (click)="common.playAudio(d.audio[0])" [style]="data.designName==='Words'?'left: 36px':''" class="icon-audio"  src="../../assets/icon/audio.png">
+      <div [class]="data.designName==='Words'?'malayalam':'malayalam-large'" [innerHtml]="d.malayalamword"></div>
+      <div [class]="data.designName==='Words'?'english':'english-large'" [innerHTML]="d.englishword"></div>
+      <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===0" [class]="data.designName==='Words'?'icon-star':'icon-star-large'" name="star-outline" color="dark"></ion-icon>
+      <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===1" [class]="data.designName==='Words'?'icon-star':'icon-star-large'" name="star" color="dark"></ion-icon>
+      <!-- <img [class]="data.designName==='Words'?'icon-download':'icon-download-large'" src="../../assets/icon/download.png"> -->
+          
+      <div [class]="data.designName==='Words'?'border-line':'border-line-large'"></div>
+    
+  </div>
+  </div>
+
+  <!-- Worksheet / Games -->
+  <app-explore-container [aspectId]="data.id" aspectSubId="" [games]="data.games" [worksheet]="data.worksheet"></app-explore-container>
+  
+</ion-content>

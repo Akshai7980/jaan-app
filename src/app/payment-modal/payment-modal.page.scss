@@ -1,0 +1,26 @@
+#close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+}
+
+#text{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+ion-button{
+    position: relative;
+    width: 145px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    img{
+        position: relative;
+        width: 28px;
+    }
+}

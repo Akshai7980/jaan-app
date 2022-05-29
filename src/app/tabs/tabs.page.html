@@ -1,0 +1,30 @@
+<ion-tabs #tabs (ionTabsDidChange)="setTabIcon()">
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1">
+      <ion-img style="width: 24px;" [src]="tabSelected==='tab1'?tabIconsArray[0].selected:tabIconsArray[0].icon"></ion-img>
+      <ion-label style="margin-top: 0px;">Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-img [src]="tabSelected==='tab2'?tabIconsArray[1].selected:tabIconsArray[1].icon"></ion-img>
+      <ion-label>Alarm</ion-label>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="tab3">
+      <ion-img [src]="tabSelected==='tab3'?tabIconsArray[2].selected:tabIconsArray[2].icon"></ion-img>
+      <ion-label>Library</ion-label>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="tab4">
+      <ion-img [src]="tabSelected==='tab4'?tabIconsArray[3].selected:tabIconsArray[3].icon"></ion-img>
+      <ion-label>User</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab5">
+      <ion-img style="width: 24px; margin-top: 4px;" [src]="tabSelected==='tab5'?tabIconsArray[4].selected:tabIconsArray[4].icon"></ion-img>
+      <ion-label>Share</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

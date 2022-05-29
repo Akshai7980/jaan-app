@@ -1,0 +1,70 @@
+<ion-header style="z-index: 0; margin-bottom: -20px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img src="../../assets/icon/level2-header.png">
+  
+    <p style="top: 42%; position: absolute; left: 24px; font-size: 25px; color: whitesmoke;"> {{data.header}} </p>
+    <!-- <p style="top: 42%; position: absolute; left: 24px; font-size: 25px; color: whitesmoke;"> Different Types Of Letters </p> -->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <p class="p">Click the letter or word to play audio.</p>
+
+  <div style="padding: 5px 20px 0 20px; margin: 0 auto; width: 365px;">
+
+    <div *ngFor="let d of data[index].contents; let i = index" (click)="common.playAudio(d.audio[0])" class="card">
+      <!-- <div *ngFor="let d of data[data.length-1].contents; let i = index" (click)="common.playAudio(d.audio[0])" class="card"> -->
+      <img class="image1" [src]="data.color[i%5].color">
+      <div style="width: 65px; text-align: center; margin-left: 16px;"><span class="letter">{{d.word}}</span></div>
+      <img class="image2" [src]="data.color[i%5].lightColor">
+      <img class="arrow" src="../../assets/icon/level2-arrow.png">
+      <span class="single-letter">({{d.combination}})</span>
+    </div>
+
+    <!-- <div>
+      <ion-button *ngIf="index > 0" shape="round" size="small" style="text-transform: none; left: 0px;" class="button-div" (click)="onPreviousClick()"> Prev </ion-button>
+      <ion-button *ngIf="! ((data.length)-1 == index) && data.length > 1" shape="round" size="small" style="text-transform: none;" class="button-div" (click)="onNextCick()"> Next </ion-button>
+    </div> -->
+
+    <!-- <div *ngIf="index > 0" class="button-div" style="left: 5px;" (click)="onPreviousClick()"> -->
+      <!-- Footer Previous Button -->
+      <!-- <p style="left: 52px;">Prev</p>
+      <img style="left: 30px; transform: rotate(180deg);" src="../../assets/icon/ar2.png">
+    </div> -->
+  
+    <!-- <div *ngIf="! ((data.length)-1 == index) && data.length > 1" class="button-div" (click)="onNextCick()"> -->
+      <!-- Footer Next Button -->
+      <!-- <p>Next</p>
+      <img src="../../assets/icon/ar2.png">
+    </div> -->
+
+  </div>
+
+   <!-- Worksheet / Games -->
+   <app-explore-container aspectId="2" [aspectSubId]="data[index].sublevelid" [worksheet]="data[index].worksheet" [games]="data[index].games"></app-explore-container>
+   <!-- <app-explore-container aspectId="2" [aspectSubId]="data.sublevelid" [worksheet]="data.worksheet" [games]="data.games"></app-explore-container> -->
+
+   <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+      <ion-button *ngIf="index > 0" shape="round" size="small" style="text-transform: none; left: 0px;" class="button-div" (click)="onPreviousClick()"> Prev </ion-button>
+      <ion-button *ngIf="! ((data.length)-1 == index) && data.length > 1" shape="round" size="small" style="text-transform: none;" class="button-div" (click)="onNextCick()"> Next </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

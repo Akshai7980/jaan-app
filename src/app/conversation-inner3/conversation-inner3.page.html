@@ -1,0 +1,55 @@
+<ion-header style="z-index: 0">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <!-- <ion-title>listening-inner</ion-title> -->
+
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img [src]="data.headerImage" style="width: 100%; height: 260px;">
+  
+    <p style="top: 72%; position: absolute; padding-left: 30px; backdrop-filter: brightness(70%); width: 100%; font-size: 23px; color: white"> {{data.header}} </p>
+  </ion-toolbar>
+
+  <div style="padding-left: 12px; padding-right: 12px; margin-top: 20px; text-align: center; margin-bottom: 20px;">
+    <p style="font-size: 14px; color: gray;">Audio can be played any time by clicking that dialogue</p>
+    <ion-segment (ionChange)="segmentChanged($event)">
+
+      <ion-segment-button value="listen" [style]="segmentSelected=='listen'?'background-color: #de821f; border-top-right-radius: 24px; border-bottom-right-radius: 24px; color: white; width: 158px;':'color: #de821f;'">
+        <ion-label class="segment-heading">LISTEN</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="pause"  [style]="segmentSelected=='pause'?'background-color: #de821f; border-top-left-radius: 24px; border-bottom-left-radius: 24px; color: white;':'color: #de821f;'">
+        <ion-label class="segment-heading">PAUSE</ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+  
+  </div>
+
+</ion-header>
+
+<ion-content>
+
+  <div (click)="expandDiv(i, d.files[0]); $event.stopPropagation()" class="container" [id]="'conv'+i" *ngFor="let d of data.content; let i = index;" [style]="showContents[i]?'margin-bottom: -35px;':''">
+
+    <div>
+      <img id="img" [src]="d.profileimage" [style]="showContents[i]?'border:2px solid #de821f':''">
+      <div id="name" [style]="showContents[i]?'font-weight: bold':''">{{d.profilename}}</div>
+    </div>
+    
+    <div id="malayalam">{{d.sentence}}</div>
+    <div *ngIf="showContents[i]" id="border-line-short"></div>
+
+    <div *ngIf="showContents[i]" id="manglish">{{d.pronounciation}}</div>
+    <div *ngIf="showContents[i]" id="border-line-short"></div>
+
+    <div *ngIf="showContents[i]" id="english">{{d.meaning}}</div>
+
+    <div id="border-line"></div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<div style="background: #201c4e; position: relative; height: 120px; margin-bottom: -1px;">
+  <!-- Header -->
+
+  <span style="font-size: 14px; position: absolute; bottom: 50px; left: 25px; color: mediumslateblue;"> Edit </span>
+  <!-- <span style="font-size: 22px; position: absolute; bottom: 5px; right: 25px; color: mediumslateblue;"> + </span> -->
+
+  <app-explore-container headerColor="white"></app-explore-container>
+
+  <div style="position: absolute; bottom: 42px; border: 0.5px solid mediumslateblue; width: calc(100% - 45px); margin-left: 25px;"></div>
+
+  <div style="font-size: 20px; bottom: 5px; color: white; position: absolute; left: 25px">Alarm</div>
+</div>
+
+<ion-content>
+  
+  <div style="padding-left: 25px; padding-right: 25px; margin-top: 10px; color: #ffffff;">
+    <!-- <div style="font-size: 20px; margin-bottom: 15px;">Alarm</div> -->
+    
+    <div *ngFor="let a of alarm; let i = index" class="alarm" [style]="!a.toggle?'opacity: .5;':''">
+
+      <div style="width: calc(100% - 60px);" (click)="addEditAlarm(a);">
+        <div id="time"> {{a.time | date : "hh:mm" }} <span id="desc"> {{a.desc}} </span> </div>
+        <div style="font-size: 9px; letter-spacing: .5px; margin-top: 4px;">
+          <span id="name"> {{a.label}} </span>
+          <span id="days">, {{a.period}} </span>
+        </div>
+      </div>
+      <ion-toggle (ionChange)="toggleChanged(a); $event.stopPropagation()" [(ngModel)]="a.toggle" ></ion-toggle>
+
+      <!-- <div id="border-bottom"></div> -->
+    </div>
+
+    <ion-fab class="alarm-fab" (click)="addEditAlarm('')" vertical="bottom" horizontal="end" slot="fixed" style="position: fixed;">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+ 
+</ion-content>
+

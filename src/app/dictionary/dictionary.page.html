@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar style="position: fixed;">
+    
+    <app-explore-container headerColor="white"></app-explore-container>
+
+    <div style="text-align: center; margin-top: 100px;">
+      <p style="font-size: 21px; color: whitesmoke; position: absolute; transform: translateX(-50%); left: 50%;">
+        Dictionary
+      </p>
+    </div>
+
+    <div style="padding-left: 20px; padding-right: 20px; margin-top: 175px; width: 100%;">
+      <ion-segment (ionChange)="segmentChanged($event)" mode="md">
+
+        <ion-segment-button value="malayalam" [style]="segmentSelected=='malayalam'?'background-color: #192d4e; border-top-right-radius: 24px; border-bottom-right-radius: 24px; color: white;':'color: #192d4e;'">
+          <ion-label class="segment-heading">Malayalam Word</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="english"  [style]="segmentSelected=='english'?'background-color: #192d4e; border-top-left-radius: 24px; border-bottom-left-radius: 24px; color: white;':'color: #192d4e;'">
+          <ion-label class="segment-heading">English Word</ion-label>
+        </ion-segment-button>
+
+      </ion-segment>
+
+      <ion-searchbar
+      class="dictionary-searchbar"
+      placeholder="Malayalam word / English word Search"
+      mode="md"
+      debounce = 1000
+      [(ngModel)]="searchTerm"
+      (ionChange)="setFilteredItems()">
+      </ion-searchbar>
+
+    </div>
+    
+  </ion-toolbar>
+  
+</ion-header>
+
+
+<ion-content>
+  
+  <div *ngIf="segmentSelected==='malayalam'" style="padding-left: 20px;
+  margin-top: 280px;
+  position: fixed;
+  width: 100%;
+  overflow: auto;
+  height: calc(100% - 280px);">
+
+    <ion-content style="--background: none;">
+
+      <div (click)="wordDetails(m)" class="content dictionary-cont" *ngFor="let m of data">
+        <p id="mal">{{m.dic_word}}</p>
+        <p id="en">{{m.pronounciation}}</p>
+      </div>
+
+      <ion-infinite-scroll *ngIf="searchTerm === ''" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </ion-content>
+
+  </div>
+
+  <div *ngIf="segmentSelected==='english'" style="padding-left: 20px;
+   margin-top: 280px;
+  position: fixed;
+  width: 100%;
+  overflow: auto;
+  height: calc(100% - 280px);">
+
+    <ion-content style="--background: none;">
+
+      <div (click)="wordDetails(e)" class="content-en" *ngFor="let e of data">
+        <p id="en">{{e.meaning}}</p>
+      </div>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </ion-content>
+
+  </div>
+
+</ion-content>

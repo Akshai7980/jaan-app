@@ -1,0 +1,100 @@
+.vocabulary-searchbar {
+  --box-shadow: 0;
+    border-radius: 25px;
+    border: 1px solid #dadede;
+    height: 15px;
+    padding: 20px;
+}
+// .home-searchbar input {
+//   border-radius: 50px;
+// }
+// .home-searchbar ion-icon {
+//     right: 16px !important;
+//     left: auto !important;
+//   }
+//   .searchbar-search-icon.sc-ion-searchbar-ios {
+//     left: 10px !important;
+//     top: 0;
+//     position: absolute;
+//     width: 22px;
+//     height: 100%;
+//     contain: strict;
+//   }
+//   .searchbar-left-aligned.sc-ion-searchbar-ios-h .searchbar-input.sc-ion-searchbar-ios {
+//     padding-left: unset;
+//     -webkit-padding-start: 30px;
+//     padding-inline-start: 30px;
+//     color: red;
+// }
+
+// box-div
+.vac-row {
+  // display: flex;
+  // padding: 0px 10px;
+  // float: left;
+  margin-right: -62px;
+  margin-bottom: 10px;
+  width: 178px;
+}
+.vac-div {
+  border: 0.5px solid #dadede;
+  background-color: #ffffff;
+  border-radius: 16px;
+  // margin: 0 5px;
+  width: 62%;
+  position: relative;
+}
+.vac-circle-bg {
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+}
+.vac-div p {
+    text-align: center;
+    font-size: 10px;
+    color: #000000;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.vac-circle-bg h6 {
+    position: absolute;
+    top: 15%;
+    width: 70px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.start-icon {
+  position: absolute;
+    width: 20px;
+    left: 42%;
+    top: 67%;
+}
+
+// card back side session
+.back-card-text p {
+    font-size: 10px;
+    text-align: left;
+    // padding: 5px;
+    font-weight: 100;
+    letter-spacing: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.learn-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #7578fb;
+    border-radius: 0 0 15px 15px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+.goto-icon {
+  width: 12px;
+  margin-left: 5px;
+  margin-top: 1px;
+}

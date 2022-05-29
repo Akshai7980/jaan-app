@@ -1,0 +1,129 @@
+.segment-heading{
+    font-size: 14px;
+    text-transform: none;
+}
+
+ion-searchbar{
+    border: .5px solid gray;
+    border-radius: 32px;
+    --box-shadow: 0;
+    height: 40px;
+    margin-top: 11px;
+    --clear-button-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 15px;
+    margin-bottom: 60px;
+}
+
+.card{
+    // height: 450px;
+    margin-top: 8px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 2px lightgrey;
+    margin-bottom: 15px;
+    padding-bottom: 1px;
+
+    ion-icon{
+        position: absolute;
+        z-index: 2;
+        margin-left: 15px;
+        margin-top: 15px;
+        backdrop-filter: brightness(0.5);
+        border: 1px solid yellow;
+    }
+}
+
+ion-slides{
+    --bullet-background: #ffffff;
+    --bullet-background-active: #ffffff;
+}
+
+.slide-div{
+    height: 150px;
+
+    img{
+        width: 280px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+}
+
+.heading{
+    color: #2c51a1;
+    margin-left: 20px;
+    font-size: 12px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 3px;
+    margin-bottom: -5px;
+    font-weight: bold;
+    width: calc(100% - 40px);
+}
+
+.content{
+    font-size: 11px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify;
+}
+
+.media-container{
+    display: flex;
+    overflow-x: auto;
+    padding: 14px 14px 10px 14px;
+
+    img{
+        max-width: 70px;
+        height: 70px;
+        border-radius: 10px;
+        margin-right: 5px;
+    }
+
+    video{
+        border-radius: 10px;
+        margin-right: 5px;
+        
+    }
+
+    #video{
+        border-radius: 10px;
+        margin-right: 5px;
+        width: 100px;
+        height: 59px;
+        border: 1px solid;
+    }
+}
+
+.see-more{
+    position: relative;
+    // margin-top: -15px;
+    display: flow-root;
+
+    #p{
+        color: #2c51a1;
+        font-size: 12px;
+        // position: absolute;
+        float: right;
+        margin-right: 42px;
+        position: relative;
+    }
+
+    #arrow{
+        width: 14px;
+        position: absolute;
+        right: 22px;
+        top: 13px;
+    }
+}
+
+.categories{
+    padding-left: 40px;
+    padding-right: 35px;
+
+    p{
+        font-size: 12px;
+        height: 39px;
+        border-bottom: 1px solid lightgray;
+    }
+}

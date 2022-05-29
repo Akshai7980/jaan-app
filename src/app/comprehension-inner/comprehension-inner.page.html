@@ -1,0 +1,86 @@
+<ion-header style="z-index: 0; margin-bottom: -26px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-toolbar>
+    
+      <app-explore-container headerColor="white"></app-explore-container>
+      
+      <img [src]="data.header">
+    
+      <p style="top: 30%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke"> {{data.sectionName}} </p>
+    </ion-toolbar>
+  </ion-header>>
+
+<ion-content *ngIf="data.content[0]">
+  
+  <div class="main-div">
+      
+    <div class="button-img-div">
+      <!-- Listen Button -->
+      <img (click)="common.playAudio(data.content[i]?.filename[0])" class="listen-button"  src="../../assets/icon/com-listen.png">
+    </div>
+
+    <div style="float: right; margin-top: -63px;">
+      <!-- Squirrel -->
+      <img class="sq-image"  src="../../assets/icon/com-sq.png">
+    </div>
+
+    <!-- <img class="books-image"  src="../../assets/icon/com-books.png"> -->
+
+    <div class="question-box">
+      <div [innerHTML]="data.content[i]?.content"></div>
+      <!-- <div> {{data.content[i]?.content}} </div> -->
+    </div>
+
+    <p class="audio-text">Click the button for audio</p>
+
+    <div class="mal-let-div" *ngFor="let q of data.content[i]?.questions">
+      <div class="play-img-text">
+          <img class="com-play-image" src="../../assets/icon/com-play.png">
+          <p>{{q.question}}</p>
+      </div>
+      <div class="mal-words">
+        <p>{{q.option_1}}</p>
+        <p>{{q.option_2}}</p>
+        <p>{{q.option_2}}</p>
+        <p>{{q.option_4}}</p>
+      </div>
+      <!-- <img class="com-gif-image" src="../../assets/icon/com-gif.png"> -->
+    </div>
+
+    <div *ngIf="i > 0" class="button-div" style="left: 5px;" (click)="onNextPreviousClick(-1)">
+      <!-- Footer Previous Button -->
+      <p style="left: 52px;">Prev</p>
+      <img style="left: 30px; transform: rotate(180deg);" src="../../assets/icon/level4-arrow.png">
+    </div>
+  
+    <div *ngIf="! ((data.content.length)-1 == i) && data.content.length > 1" class="button-div" (click)="onNextPreviousClick(1)">
+      <!-- Footer Next Button -->
+      <p>Next</p>
+      <img src="../../assets/icon/level4-arrow.png">
+    </div>
+
+    <div style="text-align: center; margin-bottom: 10px;">
+      <ion-button (click)="goToGames()" style="--background: linear-gradient(#15a2e9, #0685c2); font-size: 12px; width: 211px; height: 32px;" shape="round">Click for Games</ion-button>
+    </div>
+    
+    <!-- <div class="mal-let-div" >
+        <div class="play-img-text"> 
+            <img class="com-play-image" src="../../assets/icon/com-play.png">
+            <p>{{d.question1}}</p>
+        </div>
+    </div>
+    <div class="mal-let-div" >
+        <div class="play-img-text"> 
+            <img class="com-play-image" src="../../assets/icon/com-play.png">
+            <p>{{d.question2}}</p>
+        </div>
+    </div> -->
+  </div>
+
+  <!-- Worksheet / Games -->
+  <!-- <app-explore-container aspectId="8" [aspectSubId]="" [worksheet]="worksheet" [games]="games"></app-explore-container> -->
+
+</ion-content>

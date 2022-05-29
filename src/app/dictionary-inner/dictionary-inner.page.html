@@ -1,0 +1,40 @@
+<!-- <ion-header>
+    <ion-icon name="star-outline" color="dark"></ion-icon>
+    <ion-icon (click)="common.dismissModal()" style="margin-left: 275px; margin-top: 12px;" name="close-outline" size="large"></ion-icon>
+  <ion-toolbar>
+    <ion-title>dictionary-inner</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="header">
+      <!-- <ion-icon id="star" name="star-outline"></ion-icon> -->
+      <!-- <p id="p">Click the word to view image</p> -->
+      <ion-icon id="close" (click)="dismissModal()" style="margin-left: 275px;" name="close-outline" size="large"></ion-icon>
+  </div>
+
+  <div class="card" [style]="common.platform.height()>735?'height: 225px;':''">
+    <img *ngIf="data.images.length > 0" [src]="data?.images[0]">
+    <img *ngIf="data.images.length == 0" src="../../assets/icon/logo.png">
+  </div>
+
+  <div style="padding-left: 30px; padding-right: 30px; margin-top: -20px;">
+
+    <div style="margin-bottom: -4px; position: relative;">
+      <p class="mal">{{data?.dic_word}}</p>
+      <p class="manglish" *ngIf="data.pronounciation">({{data?.pronounciation}})
+        <span style="color: black;"> ({{data?.parts_of_speech}}) </span>
+      </p>
+      <img (click)="common.playAudio(data.audio[0])" class="play-button" src="../../assets/icon/play.png">
+      <p style="font-size: 13px;border-bottom: 1px solid lightgray; padding-bottom: 5px;"> {{data?.meaning}} </p>
+    </div>
+
+    <div *ngFor="let e of data?.sample_sentence">
+      <p class="english"> {{e}} </p>
+      <div id="border-bottom"></div>
+    </div>
+
+  </div>
+
+</ion-content>

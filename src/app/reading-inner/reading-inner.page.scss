@@ -1,0 +1,175 @@
+.card{
+    height: 370px;
+    position: relative;
+    top: -95px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 1px 10px 1px lightgrey;
+    text-align: center;
+}
+
+.image1{
+    width: 55px;
+    position: relative;
+    // bottom: -18px;
+    // right: -65px;
+    top: 20px;
+    right: 63px;
+}
+
+.image2{
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    right: 0;
+    border-top-right-radius: 20px;
+}
+
+.number{
+    position: absolute;
+    width: 120px;
+    top: 72px;
+    right: 50%;
+    margin-right: -60px;
+}
+
+.p1{
+    position: relative;
+    top: 88px;
+    // left: 118px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content{
+    position: relative;
+    top: 54px;
+    // left: 60px;
+    margin: 0 auto;
+    width: 120px;
+    text-align: left;
+}
+
+.content + .content {
+    // margin-top: 50px;
+    margin-top: 30px;
+}
+
+.content + .content + .content {
+    // margin-top: 78px;
+    margin-top: 61px;
+}
+
+.bullet{
+    width: 16px;
+    position: absolute;
+    top: 35px;
+}
+
+.p2{
+    font-size: 14px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width: 170px;
+    text-transform: capitalize;
+}
+
+.p3{
+    font-weight: bold;
+    font-size: 17px;
+    position: absolute;
+    bottom: 2px;
+    // left: 87px;
+}
+
+.arrow{
+    width: 18px;
+    position: relative;
+    // bottom: 20px;
+    left: 5px;
+    top: 2px;
+}
+
+.p4{
+    font-size: 13px;
+    font-weight: bold;
+    color: darkgrey;
+    position: absolute;
+    bottom: -40px;
+    left: 5px;
+    width: 100%;
+}
+
+// @media screen and (min-height : 701px) and (max-height : 970px) {
+//     .card{
+//         height: 430px;
+//     }
+
+//     .image1{
+//         width: 66px;
+//         position: relative;
+//         bottom: -39px;
+//         right: -56px;
+//     }
+    
+//     .image2{
+//         width: 175px;
+//     }
+    
+//     .number{
+//         position: absolute;
+//         width: 152px;
+//         top: 93px;
+//         right: 100px;
+//     }
+    
+//     .p1{
+//         position: relative;
+//         top: 140px;
+//         left: 143px;
+//         font-size: 23px;
+//         font-weight: bold;
+//     }
+    
+//     .content{
+//         position: relative;
+//         top: 82px;
+//         left: 89px;
+//     }
+    
+//     .content + .content + .content {
+//         margin-top: 75px;
+//     }
+    
+//     .bullet{
+//         width: 18px;
+//         position: absolute;
+//         top: 53px;
+//         left: 30px;
+//     }
+    
+//     .p2{
+//         font-size: 15px;
+//         position: absolute;
+//         top: 37px;
+//         left: 57px;
+//         width: 190px;
+//     }
+    
+//     .p3{
+//         left: 110px;
+//     }
+    
+//     .arrow{
+//         left: 204px;
+//     }
+    
+//     .p4{
+//         bottom: -50px;
+//         left: 60px;
+//     }
+
+// }

@@ -1,0 +1,15 @@
+.error-message{
+    margin-left: -150px;
+    margin-top: -7px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 7px;
+    width: 100%;
+    left: 190px !important;
+    text-align: left;
+}
+
+.error-message span{
+    font-size: 0.7em;
+    color: #d01d1d;
+}

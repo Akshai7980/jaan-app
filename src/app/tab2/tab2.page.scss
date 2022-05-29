@@ -1,0 +1,47 @@
+ion-content{
+    --background: #201c4e;
+}
+
+.alarm{
+
+    position: relative;
+    border-bottom: .5px solid mediumslateblue;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+
+    #time{
+        position: relative;
+        font-size: 35px;
+        letter-spacing: 1px;
+    }
+
+    #desc{
+        position: relative;
+        font-size: 20px;
+    }
+
+    #name{
+        position: relative;
+        
+    }
+
+    #days{
+        position: relative;
+
+    }
+
+    ion-toggle{
+        position: absolute;
+        right: 0;
+        top: 8px;
+        height: 21px;
+        --background: #535176;
+        --background-checked: mediumslateblue;
+        --handle-background-checked: #ffffff;
+    }
+
+    #border-bottom{
+        position: relative;
+
+    }
+}

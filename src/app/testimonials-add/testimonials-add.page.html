@@ -1,0 +1,58 @@
+<ion-header style="z-index: 0; margin-bottom: -12px; display: contents;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <img src="../../assets/icon/contact-header.png">
+    <p style="transform: translate(-50%, -50%); top: 68%; position: absolute; left: 28%; font-size: 20px; color: whitesmoke; text-transform: capitalize;"> Have your say... </p>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <div [formGroup]="userForm" style="text-align: center;">
+
+    <ion-item lines="none">
+      <ion-input placeholder="Name" type="text" formControlName="name" style="border-radius: 12px; height: 50px; margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; border: 1px solid lightgrey; --padding-start: 25px;">
+      </ion-input>
+    </ion-item>
+    <p *ngIf="(userForm.get('name').hasError('required') || userForm.get('name').hasError('minlength') || userForm.get('name').hasError('pattern')) && (userForm.get('name').touched || submittedForm)" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span>Please enter a valid name</span>
+    </p>
+
+    <div style="border-radius: 12px; border: 1px solid lightgrey; margin-left: 25px; margin-bottom: 3px; width: calc(100% - 50px); padding: 0 5px 0 5px;">
+
+      <ion-button (click)="uploadImage()" style="width: 100%; min-height: 45px; --border-radius: 12px; margin-left: 0px;" shape="round">Upload Image</ion-button>
+      <div *ngIf="image" style="border-radius: 12px; border: 1px solid lightgrey; min-height: 45px; margin: 2px 0 5px 0; position: relative;">
+        <img [src]="imageDisplay" style="width: 22px; height: 22px; position: absolute; transform: translateY(-50%); top: 50%; left: 30%;">
+        <span style="color: #147041; font-size: 14px; position: absolute; transform: translateY(-50%); top: 50%; left: 42%;">Image Uploaded</span>
+      </div>
+
+    </div>
+
+    <ion-item lines="none">
+      <ion-textarea placeholder="Type your opinion" type="text" formControlName="content" style="border-radius: 12px; min-height: 100px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; border: 1px solid lightgrey; --padding-start: 25px; --padding-bottom: 50px;">
+      </ion-textarea>
+    </ion-item>
+    <p *ngIf="(userForm.get('content').hasError('required')) && (userForm.get('content').touched || submittedForm)" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span>Please enter a message</span>
+    </p>
+
+    <ion-item lines="none">
+      <div style="border: 1px solid lightgrey; width: calc(100%); border-radius: 10px; min-height: 55px; margin-left: 10px; margin-right: 10px; margin-bottom: 25px; font-size: 15px; padding-left: 25px; position: relative;">
+        <div style="position: absolute; transform: translateY(-50%); top: 50%;">Rate Us</div>
+        <rating class="testimonials-rating" style="position: absolute; transform: translateY(-50%); top: 50%; right: 15px;" id="rating" formControlName="rating"></rating>
+      </div>
+    </ion-item>
+    <p style="margin-top: -20px;" *ngIf="(userForm.get('rating').hasError('required')) && (userForm.get('rating').touched || submittedForm)" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span>Please select a rating</span>
+    </p>
+
+    <ion-button (click)="submit()" style="width: 290px; height: 45px;" shape="round"> Submit </ion-button>
+
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header style="z-index: 0;">
+  <div style="text-align: center;">
+
+  <ion-icon (click)="common.dismissModal()" style="position: absolute; right: 10px; top: 15px;" name="close-outline" size="large"></ion-icon>
+  
+  <div class="header-box" (click)="common.playAudio(audio)">
+    <p id="p1">{{wordEnglish}}</p>
+    <p id="p2">{{word}}</p>
+  </div>
+
+</div>
+
+</ion-header>
+
+<ion-content>
+
+
+  <!-- <div *ngFor="let d of data"> -->
+    <div style="margin: 0px auto; width: 315px;">
+    <div class="data" *ngFor="let d of data">
+
+      <img [src]="d.imagefiles[0]">
+      <p id="p1" (click)="common.playAudio(d.pronouncefiles[0])">{{d.word}}</p>
+      <p id="p2">{{d.pronounciation}}</p>
+      <p id="p3">{{d.meaning}}</p>
+      
+    </div>
+    </div>
+  <!-- </div> -->
+
+  
+
+</ion-content>

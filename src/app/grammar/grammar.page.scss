@@ -1,0 +1,104 @@
+ion-content{
+    --offset-top: 0px !important;
+    --offset-bottom: 150px !important;
+    position: relative;
+    // --overflow: hidden;
+    top: -120px;
+    // --background: url('../../assets/icon/grammar-bg.png') 0 0/100% 100% no-repeat;
+}
+
+.div1{
+    margin-top: -79px;
+    width: 660px;
+
+    img{
+        width: 100px;
+    }
+
+    #img1{
+        margin-left: 23px;
+        margin-right: 35px;
+    }
+
+    // #img2{
+
+    // }
+}
+
+.div2{
+    margin-left: -55px;
+    margin-top: -26px;
+    width: 660px;
+
+    img{
+        width: 100px;
+    }
+
+    #img1{
+        position: relative;
+        top: -21px;
+        margin-right: -22px;
+    }
+
+    #img2{
+        margin-right: -22px;
+    }
+}
+
+.p-box{
+    // position: absolute;
+    // top: -12px;
+    // left: 23px;
+    font-size: 10px;
+    color: #ffffff;
+    border: 1px solid;
+    height: 80px;
+    width: 78px;
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: -10px;
+}
+
+.padding-top{
+    padding-top: 5px;
+}
+
+.div-box{
+    font-size: 11px;
+    color: #ffffff;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: -22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: -22px;
+}
+
+.div-box:nth-child(even){
+    margin-top: -22px;
+    padding-top: 23px !important;
+}
+
+.div-box:nth-child(8n+5){
+    margin-left: -21px;
+    padding-left: 21px;
+}
+
+.div-box:nth-child(8n+6),.div-box:nth-child(8n+7),.div-box:nth-child(8n+8   ){
+    padding-left: 21px;
+}
+
+// .div-box:nth-child(5){
+//     margin-left: -21px;
+// }
+
+.div-box div{
+    width: 78px;
+}
+
+// .p-box + .p-box{
+    // margin-left: 78px;
+    // margin-bottom: -10px;
+// }

@@ -1,0 +1,34 @@
+<ion-header style="z-index: 0; margin-bottom: -26px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-toolbar>
+    
+      <app-explore-container page="speakingInner" headerColor="white"></app-explore-container>
+      
+      <img style="width: 100%; height: 220px;" [src]="data.header">
+    
+      <p style="top: 48%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke">{{data.sectionName}}</p>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <div *ngFor="let d of data.content; let i = index; let even = even" class="main-div" [style]="'background-color:' + common.colors[i%9]">
+    <div *ngIf="common.favourites?d.star===1:(d.star===0||d.star===1)">
+      <p class="malayalam">{{d.malayalamword}}</p>
+      <p class="englishMalayalam">({{d.pronounsation}})</p>
+      <div class="border-line"></div>
+      <p class="english">{{d.englishword}}</p>
+      <br>
+      <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===0" class="icon-star" name="star-outline" color="dark"></ion-icon>
+      <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===1" class="icon-star" name="star" color="dark"></ion-icon>
+      <img (click)="common.playAudio(d.audio[0])" class="icon-play" src="../../assets/icon/play.png">
+    </div>
+  </div>
+
+  <!-- Worksheet / Games -->
+  <app-explore-container [aspectId]="levelId" aspectSubId="" [worksheet]="data.worksheet" games="data.games"></app-explore-container>
+
+</ion-content>

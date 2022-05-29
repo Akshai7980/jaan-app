@@ -1,0 +1,56 @@
+<ion-header *ngIf="data" style="position: relative; z-index: 0;">
+  <!-- Header -->
+
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+  <span style="font-size: 16px; position: absolute; top: 55px; left: 25px; font-weight: bold">Worksheet</span>
+
+  <app-explore-container headerColor="black"></app-explore-container>
+
+  <div style="position: absolute; top: 80px; border: 0.5px solid lightgray; width: calc(100% - 50px); margin-left: 25px;"></div>
+
+  <div class="header"> 
+    <span id="letter"> {{data[i].word}} </span>
+    <span id="mark"> {{marks}} / {{data[i].question.length}} </span>
+  </div>
+
+  <ion-icon class="header-more" (click)="common.presentAlert('Choose the suitable grid to which the given suffix can be matched, then click on SUBMIT to know the result')" name="information-circle" style="position: absolute; right: 10px; top: 8px;font-size: 40px; color: #3e368d;"></ion-icon>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+  <div class="answer-box" [style]="data[i].block===1||chance===0?'opacity: 0.5':''">
+    <div *ngFor="let d of data[i].options; let index=index" (click)="wordSelected(index, d)" [id]="'options'+index">
+      <span> {{d}} </span>
+    </div>
+  </div>
+
+  <div style="margin-top: 8px;"></div>
+
+  <div class="question-box">
+    <div *ngFor="let d of data[i].question; let index = index" [id]="'question'+index">
+      <span> {{d}} </span>
+    </div>
+  </div>
+
+  <div style="margin-top: 25px;"></div>
+
+  <div class="footer">
+    <div id="answer"> {{selectedWord}} </div>
+    <span id="plus"> + </span>
+    <span id="letter"> {{data[i].word}} </span>
+    <span id="equals"> = </span>
+    <div id="combined"> {{combinedAnswer}} </div>
+  </div>
+
+  <div style="width: calc(100%); text-align: center; position: fixed; bottom: 0px; background: white;">
+    <img style="width: 180px; position: absolute; transform: translateX(-50%); left: 50%; top: -151px;" [src]="common.gifPath">
+    <div style="height: 4px;"></div>
+    <ion-button [disabled]="i <= 0" (click)="nextPrev(-1)" class="footer-btn">Prev</ion-button>
+    <ion-button [disabled]="data[i].block === 1 || chance === 0" (click)="checkAnswer()" class="footer-btn">Submit</ion-button>
+    <ion-button [disabled]="((data.length)-1 === i) || data.length === 1" (click)="nextPrev(1)" class="footer-btn">Next</ion-button>
+    <ion-button [disabled]="data[i].block !== 1 && chance !== 0" (click)="resetAlert()" color="danger" style="width: 322px;">Reset</ion-button>
+  </div>
+
+</ion-content>

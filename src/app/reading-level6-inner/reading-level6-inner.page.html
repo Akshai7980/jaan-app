@@ -1,0 +1,47 @@
+<ion-header style="z-index: 0; margin-bottom: -20px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img src="../../assets/icon/level6-header.png">
+  
+    <p style="top: 38%; position: absolute; left: 24px; font-size: 26px; color: whitesmoke; width: 216px;"> {{songs.sublevel}} </p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-slides [options]="slideOpts" #slides (ionSlideWillChange)="slideChanged()" style="margin: 0 auto; width: 375px">
+        <ion-slide class="slide" *ngFor="let s of songs.contents">
+        <!-- <div> -->
+
+          <h1> {{s.title}} </h1>
+          <div class="div">
+            <img [src]="s.imagefiles[0]">
+            <div>
+                <p [innerHTML]="s.description"></p>
+            </div>
+          </div>
+
+        <!-- </div> -->
+        </ion-slide>
+      </ion-slides>
+</ion-content>
+
+<ion-footer style="height: 58px;">
+
+  <audio controls style="background: #f1f3f4; width: 100%;">
+    <source [src]="song" type="audio/mpeg">
+  </audio>
+
+  <!-- <div style="transform: translate(-50%, -50%); position: absolute; top: 50%; left: 50%;">
+    <img class="audio-volume" src="../../assets/icon/volume.png">
+    <img (click)="changeSlide('prev')" class="audio-prev" src="../../assets/icon/prev.png">
+    <img *ngIf="!playAudio" (click)="playPauseAudio('play')" class="audio-play" src="../../assets/icon/play.png">
+    <img *ngIf="playAudio" (click)="playPauseAudio('pause')" class="audio-play" src="../../assets/icon/pause.png">
+    <img (click)="changeSlide('next')" class="audio-next" src="../../assets/icon/next.png">
+  </div> -->
+</ion-footer>

@@ -1,0 +1,23 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>media-view</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div class="header">
+    <ion-icon id="close" (click)="dismissModal()" name="close-outline" size="large"></ion-icon>
+  </div>
+
+  <img *ngIf="mediaType === 'image'" [src]="media" style="height: 100%; width: 100%;">
+
+  <video *ngIf="mediaType === 'video' && !isYoutube" id="video" width="100%" height="142%" style="position: absolute; top: -142px;" controls autoplay controlsList="nodownload">
+    <source [src]="media" type="video/mp4">
+  </video>
+
+  <iframe width="100%" height="100%" *ngIf="mediaType === 'video' && isYoutube"
+    [src]="videoURL()">
+  </iframe>
+
+</ion-content>

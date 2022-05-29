@@ -1,0 +1,53 @@
+<ion-header *ngIf="data" style="position: relative; z-index: 0;">
+  <!-- Header -->
+
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+  <span style="font-size: 16px; position: absolute; top: 55px; left: 25px; font-weight: bold">Worksheet</span>
+
+  <app-explore-container headerColor="black"></app-explore-container>
+
+  <div style="position: absolute; top: 80px; border: 0.5px solid lightgray; width: calc(100% - 50px); margin-left: 25px;"></div>
+
+  <div class="header"> 
+    <span id="mark"> {{marks}} / 1 </span>
+  </div>
+
+  <div class="header-title"> {{data[index].question}} </div>
+
+  <div style="margin: 0 auto; width: 320px;">
+    <div id="answer-box" style="background: #dcf5f3; height: auto; width: 314px; border-radius: 13px; padding: 10px;">
+      <div style="height: auto; background: #ffffff; border-radius: 8px; display: flex; flex-wrap: wrap; padding-bottom: 8px; justify-content: center; min-height: 41px;">
+        <div *ngFor="let a of answersArray; let i = index;" class="answers">
+          <span> {{a}} </span>
+           <div id="remove" (click)="removeAnswer(i)"> <span> x </span> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-icon class="header-more" (click)="common.presentAlert('Click the words from the grid in order and form Malayalam sentence for the given English sentence. Then Click SUBMIT to know the result.')" name="information-circle" style="position: absolute; right: 10px; top: 8px;font-size: 40px; color: #3e368d;"></ion-icon>
+
+</ion-header>
+
+<ion-content *ngIf="data">
+  
+  <div style="margin-top: 10px;"></div>
+
+  <div class="questions-box" [style]="data[index].block===1?'opacity: 0.5':''">
+    <div *ngFor="let d of data[index].options" (click)="wordSelected(d)">
+      <span> {{d}} </span>
+    </div>
+  </div>
+
+  <div style="width: calc(100%); text-align: center; margin-top: 20px; background: white; position: relative;">
+    <img style="width: 180px; position: absolute; transform: translateX(-50%); left: 50%; top: -151px;" [src]="common.gifPath">
+    <div style="height: 4px;"></div>
+    <ion-button [disabled]="index <= 0" (click)="nextPrev(-1)" class="footer-btn">Prev</ion-button>
+    <ion-button [disabled]="data[index].block === 1" (click)="CheckAnswers()" class="footer-btn">Submit</ion-button>
+    <ion-button [disabled]="((data.length)-1 === index) || data.length === 1" (click)="nextPrev(1)" class="footer-btn">Next</ion-button>
+    <ion-button  [disabled]="data[index].block !== 1" (click)="resetAlert()" color="danger" style="width: 322px;">Reset</ion-button>
+  </div>
+
+</ion-content>

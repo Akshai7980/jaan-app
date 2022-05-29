@@ -1,0 +1,60 @@
+<ion-header style="z-index: 0;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+
+    <app-explore-container headerColor="white"></app-explore-container>
+
+    <img src="../../assets/icon/com-bg.png">
+
+    <p style="top: 35%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke">Comprehension</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-div">
+    <div (click)="openSection('Easy Level')" class="easy-card staggered-animation" style="--animation-order: 0;">
+      <img class="bar-image" src="../../assets/icon/com-bar.png">
+      <img class="green-list-image" src="../../assets/icon/com-green-list.png">
+      <div style="position: absolute; left: 30px; top: 10px;">
+        <img class="green-bg-image" src="../../assets/icon/com-grn-bg.png">
+        <img class="com-one-image" src="../../assets/icon/com-one.png">
+        <p class="easy-text">Easy</p>
+        <div class="learn-div">
+          <p>Learn More</p>
+          <img class="" src="../../assets/icon/writing-green-arrow.png">
+        </div>
+      </div>
+    </div>
+
+    <div (click)="openSection('Medium Level')" class="medium-card staggered-animation"  style="--animation-order: 1;">
+      <img class="med-bar-image" src="../../assets/icon/com-bar.png">
+      <img class="med-green-list-image" src="../../assets/icon/com-org-list.png">
+      <div style="position: absolute; left: 30px; top: 10px;">
+        <img class="med-green-bg-image" src="../../assets/icon/com-org-bg.png">
+        <img class="med-com-one-image" src="../../assets/icon/com-two.png">
+        <p class="med-easy-text">Medium</p>
+        <div class="med-learn-div">
+          <p>Learn More</p>
+          <img class="" src="../../assets/icon/com-org-arrow.png">
+        </div>
+      </div>
+    </div>
+    
+    <div (click)="openSection('Difficult Level')" class="difficult-card staggered-animation"  style="--animation-order: 2;">
+        <img class="dif-bar-image" src="../../assets/icon/com-bar.png">
+        <img class="dif-green-list-image" src="../../assets/icon/com-red-list.png">
+        <div style="position: absolute; left: 30px; top: 10px;">
+          <img class="dif-green-bg-image" src="../../assets/icon/com-red-bg.png">
+          <img class="dif-com-one-image" src="../../assets/icon/com-three.png">
+          <p class="dif-easy-text">Difficult</p>
+          <div class="dif-learn-div">
+            <p>Learn More</p>
+            <img class="" src="../../assets/icon/com-red-arrow.png">
+          </div>
+        </div>
+      </div>
+  </div>
+</ion-content>

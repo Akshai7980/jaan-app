@@ -1,0 +1,164 @@
+<div class="header-div" style="position: relative; height: 52px; margin-bottom: 5px;">
+    <!-- Header -->
+
+    <span style="font-size: 14px; position: absolute; bottom: 10px; left: 12px; color: darkblue;"> {{headerWish}} <span style="font-weight: bold;">{{userName}}</span></span>
+
+    <!-- Header Options -->
+    <app-explore-container page="home" *ngIf="testimonials" headerColor="black"></app-explore-container>
+    <img (click)="openNotification()" style="width: 15px; position: absolute; top: 17px; right: 43px;" src="../../assets/icon/notification-black.png">
+    <ion-badge *ngIf="common.notificationCount>0" style="position: absolute; top: 15px; right: 38px; font-size: 7px; border-radius: 20px; background: #f3355b;"> {{common.notificationCount}} </ion-badge>
+    <!-- <img (click)="openNotification()" style="width: 15px; position: absolute; top: 17px; right: 80px;" src="../../assets/icon/notification-black.png">
+  <ion-badge *ngIf="common.notificationCount>0" style="position: absolute; top: 15px; right: 74px; font-size: 7px; border-radius: 20px; background: #f3355b;"> {{common.notificationCount}} </ion-badge>
+  <img style="width: 16px; position: absolute; top: 18px; right: 45px;" src="../../assets/icon/comment-black.png">
+  <ion-icon style="position: absolute; right: 13px; top: 18px;" name="menu-outline"></ion-icon> -->
+
+    <div style="position: absolute; bottom: 0; border: 0.5px solid darkgray; width: calc(100% - 25px); margin-left: 12px;"></div>
+</div>
+
+
+<ion-content [scrollEvents]="true">
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content> </ion-refresher-content>
+    </ion-refresher>
+
+    <!-- <img style="width: 180px; position: absolute; transform: translateX(-50%); left: 50%; backdrop-filter:brightness(0.5); background: white;" [src]="common.gifPath"> -->
+    <!-- <img style="width: 180px; position: absolute; transform: translate(-50%, -50%); left: 80%; top: 50%; z-index: 99;" [src]="common.gifPath"> -->
+
+    <!-- <div style="padding-left: 2px; padding-right: 5px;" *ngFor="let b of banner">
+    Banners Old
+
+    <img [src]="b.images[0]" alt="Sorry, image coludn't be loaded." onerror="this.classList.add('image-error')">
+    <div class="border"></div>
+  </div> -->
+
+    <div style="padding-left: 2px; padding-right: 5px;" *ngIf="banner">
+        <!-- Banners -->
+
+        <h6 style="margin-left: 10px; margin-top: 0;" *ngIf="banner.videos.length>0"> {{videoTitle}} </h6>
+
+        <ion-slides #slides pager="true" (ionSlideWillChange)="setSlide()" [options]="slideVideoOpts" style="height: 200px;" *ngIf="banner.videos.length>0">
+            <ion-slide *ngFor="let b of banner.videos; let i = index">
+                <!-- <h6 style="position: absolute; left: 0; top: -14px; backdrop-filter: blur(1px); color: white; font-size: 18px;"> {{b.title}} </h6> -->
+                <video [id]="'video' + i" width="100%" controls controlsList="nodownload">
+          <source [src]="b.videos" type="video/mp4">
+        </video>
+            </ion-slide>
+        </ion-slides>
+
+        <div class="border" style="margin-top: 10px; margin-bottom: 10px;"></div>
+
+        <ion-slides pager="true" [options]="slideImageOpts" style="height: 200px;" *ngIf="banner.images.length>0">
+            <ion-slide *ngFor="let b of banner.images">
+                <img [src]="b.image" alt="Sorry, image coludn't be loaded." onerror="this.classList.add('image-error')">
+            </ion-slide>
+        </ion-slides>
+
+        <div class="border" style="margin-top: 10px;" *ngIf="banner.images.length>0"></div>
+    </div>
+
+    <!-- <div *ngFor="let product of products">
+    <ion-button (click)="purchase(product)">Click to subscribe</ion-button>
+  </div> -->
+
+    <div style="position: relative; padding-left: 10px; margin-top: -5px;">
+        <!-- Study Rack -->
+
+        <h6 style="margin-left: 6px;">My Study Rack</h6>
+
+        <div style="display: flex; overflow-x: auto;">
+
+            <div class="outer-div" *ngFor="let s of sections" (click)="common.openPage(s.name, 1, '')">
+
+                <div class="upper" [style]="'background: ' + s.dColor">
+
+                    <img id='image' [src]="s.image">
+                    <img id="arrow" [src]="s.arrow">
+
+                </div>
+
+                <div class="lower" [style]="'background: ' + s.lColor">
+                    <span>{{s.name}}</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div (click)="common.openPage('home-aspects', 1, '')" style="margin-bottom: 12px;">
+            <!-- Button To Aspects Page -->
+            <span style="position: absolute; bottom: 3px; right: 38px; font-size: 13px; font-weight: bold;">Click Here to View More</span>
+            <img style="position: absolute; bottom: -1px; right: 8px; width: 22px" src="../../assets/icon/writing-blue-arrow.png">
+        </div>
+    </div>
+
+    <div class="mal-dict" (click)="common.openPage('dictionary', 1, '')">
+        <!-- Malayalam Dictionary -->
+
+        Go to Malayalam Dictionary
+        <div id="button">Click Here</div>
+
+    </div>
+
+    <div style="position: relative; padding-left: 10px;">
+        <!-- Levels Reached -->
+
+        <h6 style="margin-left: 6px;">Levels Achieved</h6>
+        <div class="border-right"></div>
+
+        <ion-item lines="none" class="levels" *ngFor="let l of levels">
+            <img id="img" [src]="l.image">
+            <span id="name">{{l.name}}</span>
+            <span id="pc-number">{{l.percentage}}</span>
+            <span id="pc">%</span>
+            <ion-progress-bar [style]="l.style" id="p-bar" [value]="l.percentage/100"></ion-progress-bar>
+        </ion-item>
+
+    </div>
+
+    <div style="position: relative; padding-left: 20px;" *ngIf="testimonials">
+        <!-- Testimonials -->
+
+        <h6> Testimonials </h6>
+        <div class="border-right"></div>
+
+        <div style="display: flex; overflow-x: auto;">
+            <div *ngFor="let t of testimonials" class="testimonials">
+                <div (click)="openTestimonials(t, 'testimonial')" id="outer-div" [style]="t.file?'background-image: url(' + t.file + ')':'background: grey;'">
+                    <div id="lower">
+                        <p id="name"> {{t.name}} </p>
+                        <div id="line"></div>
+                        <rating class="home-rating" id="rating" [(ngModel)]="t.rating" readonly="true"></rating>
+
+                        <p *ngIf="t.content" id="desc"> {{(t.content | slice:0:35) + (t.content.length>35?'...':'')}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: relative; padding-left: 20px;" *ngIf="jCorner">
+        <!-- Jaans Corner -->
+        <h6> JAAN's Corner </h6>
+        <div class="border-right"></div>
+
+        <div style="display: flex; overflow-x: auto;">
+            <div *ngFor="let j of jCorner" class="jCorner">
+                <div id="outer-div" (click)="openTestimonials(j, 'jCorner')">
+                    <div *ngIf="j.file_type==='Image'" id="upper" [style]="j.file?'background-image: url(' + j.file + ')':'background: white;'"> </div>
+                    <div *ngIf="j.file_type==='Video'" id="upper">
+                        <ion-icon name="play-circle-outline" style="position: absolute; transform: translate(-50%, -50%); top: 30%; left: 50%; font-size: 45px;"></ion-icon>
+                    </div>
+                    <div id="lower">
+                        <p id="title"> {{j.name}} </p>
+                        <!-- <p id="date"> {{j.created_at | date: 'd-MMM-y'}} </p> -->
+                        <p *ngIf="j.content" id="desc"> {{(j.content | slice:0:135) + (j.content.length>135?'...':'')}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 25px;"></div>
+
+</ion-content>

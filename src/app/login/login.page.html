@@ -1,0 +1,50 @@
+<ion-header style="z-index: 0;">
+
+  <div style="text-align: center; margin-bottom: -100px; margin-top: -20px;">
+    <img src="../../assets/icon/login-header.png">
+    <img style="width: 90px; position: relative; top: -170px;" src="../../assets/icon/logo.png">
+  </div>
+  
+</ion-header>
+
+<ion-content>
+  <div style="text-align: center;"><img style="width: 35px; position: relative; top: 27px;" src="../../assets/icon/login-triangle.png"></div>
+
+  <div style="color: #3e368d; text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 20px; margin-top: -16px;">LOGIN</div>
+  <div [formGroup]="loginForm" style="text-align: center; box-shadow: 0px 0px 10px 0px lightgrey; margin-left: 15px; margin-right: 15px; border-radius: 10px; padding-bottom: 30px; padding-top: 10px;">
+
+    <ion-item lines="none">
+      <ion-input placeholder="Email" type="email" formControlName="name" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 40px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; --placeholder-color: #3e368d; --placeholder-opacity: 1; font-size: 15px;">
+        <img src="../../assets/icon/login-person.png" alt="" class="text-field-icons">
+      </ion-input>
+    </ion-item>
+    <p *ngIf="(loginForm.get('name').hasError('required') ) && (loginForm.get('name').touched || submittedForm)" style="left: -6px;" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span>Please enter your email</span>
+    </p>
+
+    <ion-item lines="none">
+      <ion-input placeholder="Password" type="password" formControlName="password" [type]="showPassword ? 'text' : 'password'" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; --placeholder-color: #3e368d; --placeholder-opacity: 1; font-size: 15px;">
+        <img src="../../assets/icon/login-lock.png" alt="" class="text-field-icons">
+      </ion-input>
+
+      <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" slot="end" (click)="onPasswordToggle()" color="medium" style="margin-top: 8px; height: 20px;"></ion-icon>
+    </ion-item>
+    <p *ngIf="(loginForm.get('password').hasError('required')) && (loginForm.get('password').touched || submittedForm)" style="margin-bottom: 14px; left: 3px;" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span>Please enter your password</span>
+    </p>
+
+    <p (click)="fpAlert()" style="color: gray; font-size: 12px; position: relative; left: -60px; top: -12px;">Forgot Password / Username ?</p>
+
+    <p *ngIf="submittedForm && errorMessage" style="position: relative; margin-top: 20px; left: -65px;" class="ion-no-margin ion-no-padding error-message">
+      <!-- Error Message -->
+      <span style="position: absolute; top: -27px;"> {{ errorMessage }} </span>
+    </p>
+
+    <ion-button (click)="login()" style="width: 279px; height: 45px; font-size: 16px; margin-top: -5px; --background: linear-gradient(#1662b0, #2f3394);" shape="round">LOGIN</ion-button>
+
+    <p style="font-size: 12px; position: relative; top: 20px;">Don't have an acount ?<span (click)="goToRegister()" style="color: #1662b0; font-size: 15px; font-weight: bold; margin-left: 10px;">              Sign Up</span></p>
+  </div>
+
+</ion-content>

@@ -1,0 +1,14 @@
+ion-content{
+    // --background: url('../../assets/icon/fun-bg.png') 0 0/100% 100% no-repeat;
+
+    &::part(background) {
+        background: url('../../assets/icon/fun-bg.png') no-repeat center center / cover;
+      }
+}
+
+
+
+ion-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}

@@ -1,0 +1,358 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: Lato;
+    src: url("../src/assets/fonts/Lato-Regular.ttf")
+}
+
+:root {
+  /* Font family of the entire app */
+  --ion-font-family: Lato;
+}
+
+.header-back-button{
+    position: absolute;
+    top: 4px;
+    display: block !important;
+}
+
+@media screen and (max-height : 700px) {
+  .ios .header-back-button{
+    padding-top: 15px;
+  }
+}
+
+@media screen and (min-height : 701px) and (max-height : 1000px) {
+  .ios .header-back-button{
+    padding-top: 55px;
+  }
+}
+
+@media screen and (max-height : 700px) {
+  // Header options for small screen ios devices
+  .ios .header-more{
+    margin-top: 16px;
+  }
+}
+
+@media screen and (min-height : 701px) and (max-height : 1000px) {
+  // Header options for large screen ios devices
+  .ios .header-more{
+      margin-top: 55px;
+  }
+}
+
+@media screen and (min-height : 701px) and (max-height : 1000px) {
+  // Header in homepage for large screen ios devices
+  .ios .header-div{
+      margin-top: 45px;
+  }
+}
+
+.ios .alarm-fab{
+  // iOS Alarm fab button
+  bottom: 100px;
+}
+
+.ios .dictionary-cont:first-child{
+  // iOS Dictionary Container
+  margin-top: 50px;
+}
+
+// Reading Level 1 Modal- Report an issue Design
+.reading-level1-inner .modal-wrapper {
+    min-height: 530px;
+    height: auto;
+    width: 88%;
+    border-radius: 15px;
+ }
+// Reading Level 1 Modal- Report an issue Design Ends
+
+// Worksheet / Games Button
+
+.worksheet-button{
+
+    position: absolute;
+    bottom: 40px;
+
+    #open-button{
+        width: 30px;
+        position: fixed;
+        right: 0;
+    }
+
+    div{
+        background-color: #f23657;
+        width: 210px;
+        height: 35px;
+        position: fixed;
+        right: 0;
+
+        #close-button{
+            width: 35px;
+            position: absolute;
+            left: -21px;
+        }
+
+        #button1{
+            width: 95px;
+            font-size: 9px;
+            text-transform: capitalize;
+            height: 23px;
+            position: relative;
+            left: 12px;
+            margin-right: 14px;
+            --background: #f65674;
+            top: 1px;
+        }
+
+        #button2{
+            width: 95px;
+            font-size: 9px;
+            text-transform: capitalize;
+            height: 23px;
+            --background: #f65674;
+            top: 1px;
+            position: relative;
+        }
+    }
+}
+
+// Worksheet / Games Button Ends
+
+//  Grammar Search Bar Design
+ .grammar-searchbar .searchbar-input.sc-ion-searchbar-md{
+    -webkit-padding-start: 15px !important;
+    height: 31px;
+    font-size: 12px;
+  }
+
+  .grammar-searchbar .searchbar-search-icon.sc-ion-searchbar-md{
+    display: none !important;
+  }
+//  Grammar Search Bar Design Ends
+
+//  Dictionary Search Bar Design
+.dictionary-searchbar .searchbar-input.sc-ion-searchbar-md{
+    padding-inline-start: 17px;
+    padding-inline-end: 41px;
+    padding-top: 4px !important;
+    color: white;
+    font-size: 13px;
+  }
+
+  .dictionary-searchbar .searchbar-search-icon.sc-ion-searchbar-md{
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    right: 5px !important;
+    left: auto;
+    color: white;
+    opacity: .3;
+  }
+//  Dictionary Search Bar Design Ends
+
+//  Fun Corner Search Bar Design
+.fun-corner-searchbar .searchbar-input.sc-ion-searchbar-md{
+  padding-inline-start: 0px;
+  padding-inline-end: 32px;
+  padding-top: 3px !important;
+  font-size: 13px;
+}
+
+.fun-corner-searchbar .searchbar-search-icon.sc-ion-searchbar-md{
+  top: 7px;
+  width: 25px;
+  height: 25px;
+  right: 5px !important;
+  left: auto;
+  opacity: .3;
+}
+//  Fun Corner Search Bar Design Ends
+
+//  Vocabulary Search Bar Design
+.vocabulary-searchbar .searchbar-input.sc-ion-searchbar-md{
+  padding-inline-start: 5px;
+  padding-inline-end: 32px;
+  padding-top: 3px !important;
+  font-size: 15px;
+}
+
+.vocabulary-searchbar .searchbar-search-icon.sc-ion-searchbar-md{
+  top: 7px;
+  width: 25px;
+  height: 25px;
+  right: 5px !important;
+  left: auto;
+  opacity: .3;
+}
+//  Vocabulary Search Bar Design Ends
+
+// Dictionary Inner Page Modal- Design
+.dictionary-inner .modal-wrapper {
+  min-height: 430px;
+  height: auto;
+  width: 85%;
+  border-radius: 25px;
+  margin-top: -90px;
+}
+// Dictionary Inner Page- Modal Design Ends
+
+// Media View Modal- Design
+.media-view .modal-wrapper {
+  min-height: 340px;
+  height: auto;
+  width: 85%;
+  border-radius: 25px;
+  margin-top: -90px;
+}
+// Media View Modal Design Ends
+
+// Payment Modal- Design
+.payment-modal .modal-wrapper {
+  min-height: 180px;
+  height: auto;
+  width: 90%;
+  border-radius: 25px;
+  margin-top: -130px;
+}
+// Payment Modal Design Ends
+
+// Staggered Animation
+.staggered-animation{
+  animation: popIn .2s calc(var(--animation-order) * 200ms) both ease-in;
+
+}
+
+@keyframes popIn {
+  0% {
+      opacity: 0;
+      transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: none;
+  }
+}
+
+// Staggered Animation Ends
+
+.home-rating {
+  // Home Page Testimonial Read-only rating 
+
+  ion-icon {
+    color: #ffffff !important;
+
+    &.filled {
+      color: yellow !important;
+    }
+  }
+  .sc-ion-buttons-md-s .button-has-icon-only.button-clear {
+    margin-left: -25px;
+    width: 40px;
+    opacity: 1;
+  }
+}
+
+.testimonials-rating {
+  // Add testimonials Page Testimonial Read-only rating 
+
+  ion-icon {
+    color:#cccccc !important;
+
+    &.filled {
+      color:#147041 !important;
+    }
+  }
+  .sc-ion-buttons-md-s .button-has-icon-only.button-clear {
+    margin-left: -15px;
+    width: 45px;
+  }
+}
+
+.testimonials-inner-rating {
+  // Testimonials Inner Page Testimonial Read-only rating 
+
+  ion-buttons{
+    margin-left: 20px;
+  }
+
+  .sc-ion-buttons-md-s .button-has-icon-only.button-clear {
+    margin-left: -20px;
+    width: 40px;
+  }
+}
+
+// Worksheet Blink Effect
+.blink{
+  animation: blink 200ms 5 alternate;
+  color: #ffffff;
+}
+
+.background-red{
+  background: red !important;
+}
+
+.background-green{
+  background: green !important;
+}
+
+@keyframes blink {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+// 
+
+// Header More Popover
+.header-more .popover-content {
+  top: 2px !important;
+  left: calc(100% - 183px) !important;
+  transform-origin: right top !important;
+  width: 50%;
+}
+// 
+
+// Search Bar Close Icon - Disabled
+.searchbar-has-value.searchbar-has-focus.sc-ion-searchbar-md-h .searchbar-clear-button.sc-ion-searchbar-md {
+  display: none;
+}
+
+.registerCountrySelect .alert-radio-group.sc-ion-alert-md{
+  max-height: 100% !important;
+}
+
+.registerCountrySelect2 .popover-content.sc-ion-popover-md, .popover-content.sc-ion-popover-ios{
+  top: 40px !important;
+}
+
+.ios .worksheet-bottom{
+  // Worksheets bottom issue on ios
+
+  bottom: 100px !important;
+}

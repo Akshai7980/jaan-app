@@ -1,0 +1,109 @@
+.main-div{
+    padding: 0 20px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+.button-img-div {
+    // display: flex;
+    // align-items: center;
+    // justify-content: flex-end;
+    // margin-top: -12px;
+    text-align: center;
+}
+.listen-button {
+    width: 135px;
+    height: auto;
+}
+.sq-image {
+    width: 75px;
+    height: auto;
+}
+// .books-image {
+
+// }
+.audio-text {
+    text-align: center;
+    font-size: 14px;
+    color: #9a999e;
+    line-height: 0px;
+}
+.mal-let-div {
+    border: 1px solid #e2d9d9;
+    border-radius: 10px;
+    padding: 0px 5px;
+    position: relative;
+    margin-top: 10px;
+}
+.com-play-image {
+    width: 17px;
+}
+.play-img-text {
+    display: flex;
+    align-items: center;
+}
+.play-img-text p {
+    font-size: 11px;
+    margin-left: 5px;
+    font-weight: bold;
+    color: black;
+}
+.mal-words {
+    display: flex;
+    padding-right: 50px;
+    margin-top: -10px;
+}
+.mal-words p {
+    font-size: 10px;
+    margin-left: 5px;
+    border: 1px solid #e2d9d9;
+    line-height: 15px;
+    padding: 5px 10px;
+    border-radius: 12px;
+}
+.com-gif-image {
+    width: 20px;
+    position: absolute;
+    right: 7px;
+    bottom: 7px;
+}
+
+.mal-words p:active {
+    color: #ffffff;
+    background-color: #363a96;
+    top: 1px;
+}
+
+.question-box{
+    border: 8px solid darkgray;
+    margin-top: 30px;
+    padding: 5px 10px 5px 10px;
+    text-align: justify;
+    font-size: 13px;
+}
+
+.button-div{
+    background-color: #0aa021;
+    height: 28px;
+    width: 110px;
+    position: fixed;
+    bottom: 5px;
+    border-radius: 20px;
+    right: 5px;
+}
+
+.button-div p{
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: -8.5px;
+    left: 30px;
+    color: white
+}
+
+.button-div img{
+    width: 15px;
+    position: absolute;
+    top: 7px;
+    right: 28px;
+}

@@ -1,0 +1,73 @@
+.header{
+    position: relative;
+    background-color: darkblue;
+    height: 70px;
+    padding-top: 15px;
+    color: white;
+    text-align: center;
+
+    #p{
+        margin-top: 0px;
+        font-size: 14px;
+        color: gray;
+    }
+
+    #star{
+        position: absolute;
+        left: 15px;
+    }
+
+    #close{
+        position: absolute;
+        right: 12px;
+        width: 25px;
+        top: 5px;
+    }
+}
+
+.card{
+    box-shadow: 0px 0px 10px 0px grey;
+    height: 196px;
+    background-color: white;
+    position: relative;
+    top: -20px;
+    border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    padding-top: 45px;
+
+    img{
+        width: 150px;
+        height: 110px;
+    }
+}
+
+.mal{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.manglish{
+    font-size: 11px;
+    color: darkred;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 5px;
+}
+
+.english{
+    font-size: 13px;
+}
+
+.english #border-bottom{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.play-button{
+    width: 15px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}

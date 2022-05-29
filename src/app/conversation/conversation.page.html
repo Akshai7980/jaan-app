@@ -1,0 +1,52 @@
+<ion-header style="z-index: 0; margin-bottom: -20px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img style="width: 100%; height: 220px;" src="../../assets/icon/conversation-header.png">
+  
+    <p style="top: 52%; position: absolute; left: 28px; font-size: 25px; color: whitesmoke">Conversation</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="margin: 0 auto; width: 340px;">
+
+    <div (click)="openSection('General')" class="card staggered-animation" style="--animation-order: 0; position: relative;">
+      <!-- <div class="grid1"></div> -->
+      <img class="grid-img" src="../../assets/icon/conversation-1.png">
+      <p style="left: 53px;">General</p>
+      <div style="margin: 0 auto; width: 72%; position: absolute;">
+        <div id="learn-more" style="background-color: #2d3192">Learn More</div>
+        <img class="arrow" src="../../assets/icon/conversation1-arrow.png">
+      </div>
+    </div>
+
+    <div (click)="openSection('Grown-Ups')" class="card staggered-animation" style="--animation-order: 1; position: relative;">
+      <img class="grid-img" src="../../assets/icon/conversation-2.png">
+      <!-- <div class="fill" style="background-color: #c75f90; box-shadow: 30px 0 0 0 #f3dfe8;"></div> -->
+      <p>Grown-Ups</p>
+      <div style="margin: 0 auto; width: 72%; position: absolute;">
+        <div id="learn-more" style="background-color: #deac2b">Learn More</div>
+        <img class="arrow" src="../../assets/icon/conversation2-arrow.png">
+      </div>
+    </div>
+
+    <div (click)="openSection('Kids')" class="card staggered-animation" style="--animation-order: 2; position: relative;">
+      <img class="grid-img" src="../../assets/icon/conversation-3.png">
+      <!-- <div class="fill" style="background-color: #5fc8a7; box-shadow: 30px 0 0 0 #def3ec;"></div> -->
+      <p>Kids</p>
+      <div style="margin: 0 auto; width: 72%; position: absolute;">
+        <div id="learn-more" style="background-color: #1b9d87">Learn More</div>
+        <img class="arrow" src="../../assets/icon/conversation3-arrow.png">
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

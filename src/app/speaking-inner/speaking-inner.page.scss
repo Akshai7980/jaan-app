@@ -1,0 +1,62 @@
+.main-div{
+    position: relative;
+    // background-color: #e0e2f7;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+// .main-div-odd{
+//     position: relative;
+//     background-color: #eadcdb;
+//     border-radius: 10px;
+//     margin-left: 20px;
+//     margin-right: 20px;
+// }
+
+.icon-play{
+    width: 17px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+  }
+
+.icon-star{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    right: 10px;
+    top: 80%;
+}
+
+.malayalam{
+    font-size: 13px;
+    font-weight: bold;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    width: calc(100% - 60px);
+}
+
+.english{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 8px 0 -10px 15px;
+    width: calc(100% - 60px);
+}
+
+.english:first-letter{
+    text-transform: capitalize;
+  }
+
+.englishMalayalam{
+    color: #f3355b;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 0 15px;
+}
+
+.border-line{
+    border-bottom: 0.5px solid lightgray;
+    margin-top: 8px;
+}

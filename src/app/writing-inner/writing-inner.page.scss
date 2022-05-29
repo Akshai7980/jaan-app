@@ -1,0 +1,129 @@
+.sub-div{
+    padding: 0 15px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    width: 360px;
+}
+
+.outer-div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.repeating-div{
+    margin-bottom: -25px;
+    letter-spacing: 20px;
+    width: 55px;
+}
+
+.repeating-div-large{
+    margin-bottom: -25px;
+    width: 82px;
+}
+
+.repeating-div p{
+    line-height: 25px;
+    font-weight: bold;
+    color: #000000;
+    /* text-align: left; */
+    font-size: 15px;
+}
+
+.letterbox {
+    box-shadow: inset 0px 0px 20px 5px lightgrey;
+    text-align: center;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 14px 0 10px 0;
+
+    #gif{
+        height: 100px;
+        border-radius: 15px;
+    }
+}
+
+.writing-board {
+    background-image: url('../../assets/icon/wri-board.png');
+    height: 300px;
+    width: 330px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding: 0 20px 0 20px;
+    margin: 0 auto;
+}
+.icon-color {
+    bottom: 20px;
+    position: absolute;
+    width: 30px;
+    left: 25px;
+}
+.icon-speaker {
+    bottom: 10px;
+    position: absolute;
+    width: 40px;
+    right: 25px;
+}
+
+.border-line{
+    border-bottom: 0.5px solid lightgray;
+    width: calc(100% - 10px);
+    position: relative;
+    top: 25px;
+    left: 2px;
+    margin-bottom: 36px;
+}
+.common-text {
+    text-align: center;
+    margin-top: 0;
+    color: #928787;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+canvas {
+    width: 100%;
+    margin-top: 17px;
+}
+
+.pen-colors{
+    background: #ffffff;
+    height: 125px;
+    margin-top: 200px;
+    position: absolute;
+    width: 140px;
+    border-radius: 15px;
+    top: -80px;
+    left: 14px;
+}
+
+.pen-colors #img{
+    position: absolute;
+    bottom: -18px;
+    transform: rotate(180deg);
+    left: 15px;
+    width: 30px;
+}
+
+.colors{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.dots{
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 10px;
+}
+
+.dots-div{
+    position: relative;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}

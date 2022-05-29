@@ -1,0 +1,41 @@
+<ion-header style="z-index: 0; margin-bottom: -12px; display: contents;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <img src="../../assets/icon/help-header.png">
+    <p style="transform: translate(-50%, -50%); top: 68%; position: absolute; left: 17%; font-size: 20px; color: whitesmoke; text-transform: capitalize;"> Help </p>
+  </ion-toolbar>
+
+  <ion-button style="height: 44px; z-index: 999; margin: 0px 15px 0 15px; --background: linear-gradient(to right, #2f3394, #1662b0);" shape="round" expand="block">FAQ</ion-button>
+
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left: 25px; padding-right: 25px; margin-top: 25px;">
+
+    <div *ngFor="let d of data; let i = index;" class="container" (click)="expandShrinkDiv(i, true)">
+
+      <div id="q-box">Q</div>
+      <p id="q"> {{d.question}} </p>
+
+      <div *ngIf="showAnswers[i]">
+        <p id="a"> {{d.answer}} </p>
+        <div id="footer">
+          Are you satisfied ? 
+          <span id="footer-span" (click)="expandShrinkDiv(i, false); $event.stopPropagation()"> Yes </span>
+          <span id="footer-span2" (click)="openContactPage();"> No </span>
+        </div>
+      </div>
+
+      <div id="border" [style]="showAnswers[i]?'':'margin-top: 25px'"></div>
+
+    </div>
+
+  </div>
+
+  
+
+</ion-content>

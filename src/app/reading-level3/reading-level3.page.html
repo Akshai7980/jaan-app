@@ -1,0 +1,110 @@
+<ion-header style="z-index: 0;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+        <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+<ion-toolbar>
+  <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img src="../../assets/icon/level3-header.png">
+  
+    <p style="top: 9%; position: absolute; left: 31px; font-size: 25px; color: whitesmoke">Level 3</p>
+    
+    <div class="card">
+
+      <div class="image-div" [style]="'background-image: url(' + data[i].image + ')'">
+        
+        <!-- <img [src]="'http://web.sicsglobal.com/jaan/public/alphabeticphotos/' + data[i].image"> -->
+
+      </div>
+
+      
+
+      <div style="text-align: center">
+
+        <!-- Row 1 -->
+        <p (click)="common.playAudio(data[i].audio)" class="p1" style="margin-top: 30px;"> {{data[i].word}} </p>
+
+        <div *ngIf="data[i].row2[0].word || data[i].row2[1].word || data[i].row2[2].word || data[i].row2[3].word" class="row2">
+          <!-- Row 2 -->
+          <p *ngIf="data[i].row2[0].word" id="p" (click)="common.playAudio(data[i].row2[0].audio)"> {{data[i].row2[0].word}} </p>
+          <p *ngIf="data[i].row2[1].word" id="p" (click)="common.playAudio(data[i].row2[1].audio)"> {{data[i].row2[1].word}} </p>
+          <p *ngIf="data[i].row2[2].word" id="p" (click)="common.playAudio(data[i].row2[2].audio)"> {{data[i].row2[2].word}} </p>
+          <p *ngIf="data[i].row2[3].word" style="margin-right: 0;" id="p" (click)="common.playAudio(data[i].row2[3].audio)"> {{data[i].row2[3].word}} </p>
+        </div>
+
+        <div class="div-hex">
+          <!-- Row 3 -->
+
+          <div *ngIf="data[i].row3[0].word" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[0].audio)"> {{data[i].row3[0].word}} </p>
+          </div>
+
+          <div *ngIf="data[i].row3[1].word" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[1].audio)"> {{data[i].row3[1].word}} </p>
+          </div>
+
+          <div *ngIf="data[i].row3[2].word" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[2].audio)"> {{data[i].row3[2].word}} </p>
+          </div>
+
+          <div *ngIf="data[i].row3[3].word" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[3].audio)"> {{data[i].row3[3].word}} </p>
+          </div>
+
+          <div *ngIf="data[i].row3[4].word" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[4].audio)"> {{data[i].row3[4].word}} </p>
+          </div>
+
+          <div *ngIf="data[i].row3[5].word" style="margin-right: 0;" id="div">
+            <img class="hex" src="../../assets/icon/level3-hex.png">
+            <p class="p2" (click)="common.playAudio(data[i].row3[5].audio)"> {{data[i].row3[5].word}} </p>
+          </div>
+
+        </div>
+
+        <div class="row2"  *ngIf="data[i].row4[0].word || data[i].row4[1].word || data[i].row4[2].word || data[i].row4[3].word" style="margin-top: 0; margin-bottom: -38px;">
+          <!-- Row 4 -->
+          <p *ngIf="data[i].row4[0].word" id="p" (click)="common.playAudio(data[i].row4[0].audio)"> {{data[i].row4[0].word}} </p>
+          <p *ngIf="data[i].row4[1].word" id="p" (click)="common.playAudio(data[i].row4[1].audio)"> {{data[i].row4[1].word}} </p>
+          <p *ngIf="data[i].row4[2].word" id="p" (click)="common.playAudio(data[i].row4[2].audio)"> {{data[i].row4[2].word}} </p>
+          <p *ngIf="data[i].row4[3].word" style="margin-right: 0;" id="p" (click)="common.playAudio(data[i].row4[3].audio)"> {{data[i].row4[3].word}} </p>
+        </div>
+
+        <div>
+          <!-- Row 5 -->
+          <p *ngIf="data[i].row5[0].word" class="p1" (click)="common.playAudio(data[i].row5[0].audio)"> {{data[i].row5[0].word}} </p>
+        </div>
+          
+      </div>
+
+      <div *ngIf="i > 0" (click)="onPreviousClick()" style="left: 5px;" class="button-div">
+        <!-- Prev Button -->
+        <p style="left: 40px;">Prev</p>
+        <img style="left: 13px; transform: rotate(180deg);" src="../../assets/icon/level3-arrow.png">
+      </div>
+
+      <div *ngIf="! ((data.length)-1 == i) && data.length > 1" (click)="onNextCick()" class="button-div">
+        <!-- Next Button -->
+        <p>Next</p>
+        <img src="../../assets/icon/level3-arrow.png">
+      </div>
+
+      <!-- Worksheet / Games -->
+      <app-explore-container aspectId="3" [aspectSubId]="sublevelId" [worksheet]="worksheet" [games]="games"></app-explore-container>
+
+    </div>
+
+    
+    
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+</ion-content>

@@ -1,0 +1,80 @@
+// .card{
+    // height: 95px;
+    // border-radius: 30px;
+    // box-shadow: 0px 0px 5px 1px lightgrey;
+    // position: relative;
+    // animation: popIn .2s calc(var(--animation-order) * 200ms) both ease-in;
+    // background-image: url('../../assets/icon/GRD1.png')
+    // margin-bottom: -8px;
+// }
+
+.card+.card{
+    margin-top: -5px;
+}
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
+
+// @keyframes popIn {
+//     0% {
+//         opacity: 0;
+//         transform: scale(0.6) translateY(-8px);
+//     }
+
+//     100% {
+//         opacity: 1;
+//         transform: none;
+//     }
+// }
+
+.card p{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    text-align: center;
+    width: 100%;
+}
+
+.card #learn-more{
+    color: #ffffff;
+    position: absolute;
+    // right: 75px;
+    right: -29px;
+    // top: 70px;
+    top: -58px;
+    font-size: 9px;
+    border-radius: 20px;
+    width: 94px;
+    padding-left: 20px;
+    height: 19px;
+    padding-top: 4px;
+}
+
+.grid-img{
+    height: 120px;
+    width: 100%;
+}
+
+// .fill{
+//     width: 50%;
+//     background-color: #6860c7;
+//     height: inherit;
+//     border-top-right-radius: 65px;
+//     border-bottom-right-radius: 65px;
+//     border-bottom-left-radius: 30px;
+//     border-top-left-radius: 30px;
+//     box-shadow: 30px 0 0 0 #e1dff4;
+// }
+
+.arrow{
+    width: 10px;
+    position: absolute;
+    // right: 88px;
+    // top: 75px;
+    right: -17px;
+    top: -53px;
+}

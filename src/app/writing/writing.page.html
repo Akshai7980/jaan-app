@@ -1,0 +1,70 @@
+<ion-header *ngIf="data" style="position: unset;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  
+    <ion-toolbar>
+  
+      <app-explore-container headerColor="white"></app-explore-container>
+  
+      <img style="width: 100%;" [style]="common.platform.height()<735?'height: 270px;':'height: 333px;'" src="../../assets/icon/writing-header.png">
+  
+      <p [style]="common.platform.height()<735?'top: 26%; left: 30px':'top: 38%; left: 50px;'" style="position: absolute; left: 30px; font-size: 25px; color: whitesmoke">Writing</p>
+    </ion-toolbar>
+  </ion-header>
+  
+  <!-- <div style="background: red; height: 100px; width: 100px; margin-top: -47px;
+    z-index: 999;"></div>
+  <ion-content> -->
+  <div *ngIf="data" style=" margin: -135px 0 auto; z-index: 999;">
+    <ion-slides pager="true" style="width: 360px;">
+  
+      <ion-slide *ngFor="let d of data; let i = index;" (click)="openSection(d.sublevels, (i%3)+1, colorsArray[i%3].color)">
+        <div class="box-div">
+          <img [src]="colorsArray[i%3].image1"/>
+          
+          <!-- For First Element -->
+          <img *ngIf="i == 0" class='green-map-img'  [src]="colorsArray[i%3].image2"/>
+          
+          <div *ngIf="i == 1">
+            <!-- For Second Element -->
+            <div class="goto-page">
+              <p> {{i}} </p>
+            </div>
+            <img class='green-map-img' [src]="colorsArray[i%3].image2" />
+          </div>
+          
+          <div *ngIf="i > 1">
+            <!-- For Other Elements -->
+            <div class="goto-page-orange-blue" [style]="'background:' + colorsArray[(i-2)%3].color">
+              <p [style]="'background:' + colorsArray[(i-2)%3].lightColor"> {{i-1}} </p>
+            </div>
+            <img class='green-map-img-blue' [src]="colorsArray[(i-1)%3].image2" />
+            <div class="goto-page-green-blue" [style]="'background:' + colorsArray[(i-1)%3].color">
+              <p [style]="'background:' + colorsArray[(i-1)%3].lightColor"> {{i}} </p>
+            </div>
+            <img class='map-img-blue' [src]="colorsArray[i%3].image2" />
+          </div>
+
+          <div class="level-number-orange" [style]="'background:' + colorsArray[i%3].color">
+            <p [style]="'background:' + colorsArray[i%3].lightColor"> {{i+1}} </p>
+          </div>
+          <div class="level-contents">
+            <h2 style="font-size: 20px; font-weight: 700; color: #292222;"> {{d.levelname}} </h2>
+            <div class="sublevels-container" *ngFor="let s of d.sublevels">
+              <img class='green-list-img' [src]="colorsArray[i%3].bullet" />
+              <p class="card-text"> {{s.sublevelname}} </p>
+            </div>
+
+          </div>
+          <div style="display: flex; align-items: center; bottom: 8px; position: absolute; right: 20px;">
+            <p class="learn-text">Learn More</p>
+            <img class='green-arrow-img' [src]="colorsArray[i%3].arrow"/>
+          </div>
+        </div>
+        
+      </ion-slide>
+  
+    </ion-slides>
+  </div>
+  <!-- </ion-content> -->

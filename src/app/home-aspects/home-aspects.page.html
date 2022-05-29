@@ -1,0 +1,41 @@
+<ion-header style="position: relative; height: 80px; margin-bottom: 10px; z-index: 0;">
+  <!-- Header -->
+
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+  <span style="font-size: 16px; position: absolute; bottom: 10px; left: 25px; font-weight: bold">My Study Rack</span>
+
+  <app-explore-container headerColor="black"></app-explore-container>
+
+  <div style="position: absolute; bottom: 2px; border: 0.5px solid lightgray; width: calc(100% - 50px); margin-left: 25px;"></div>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding-left: 25px; padding-right: 25px; margin-top: 5px;">
+
+    <div *ngFor="let c of card" class="card" (click)="common.openPage(c.page, 1, '')">
+
+      <img id="img" [src]="c.image">
+      <p id="name">{{c.name}}</p>
+      <div id="border"></div>
+      <!-- <p id="price">Rs {{c.price}}</p> -->
+      <div class="badge" *ngIf="c.name==='Listening'||c.name==='Speaking'||c.name==='Reading'||c.name==='Vocabulary'||c.name==='Grammar'">
+        <img *ngIf="c.attended === 1" src="../../assets/icon/shield01.png">
+        <img *ngIf="c.percentage > 0" src="../../assets/icon/shield02.png">
+        <img *ngIf="c.percentage >= 20" src="../../assets/icon/shield03.png">
+        <img *ngIf="c.percentage >= 40" src="../../assets/icon/shield04.png">
+        <img *ngIf="c.percentage >= 60" src="../../assets/icon/shield05.png">
+        <img *ngIf="c.percentage >= 80" src="../../assets/icon/shield06.png">
+      </div>
+      <img id="shadow" [src]="c.shadow">
+      <span id="span" [style]="'color:' + c.color">Go <img id="arrow" [src]="c.arrow"></span>
+
+      <div id="border-after"></div>
+      
+    </div>
+
+  </div>
+
+</ion-content>

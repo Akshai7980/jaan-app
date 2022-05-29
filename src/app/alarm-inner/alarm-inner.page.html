@@ -1,0 +1,74 @@
+<!-- <div style="background: #201c4e; position: relative; height: 80px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+  
+  <img style="width: 15px; position: absolute; top: 17px; right: 80px;" src="../../assets/icon/notification.png">
+  <img style="width: 16px; position: absolute; top: 18px; right: 45px;" src="../../assets/icon/comment.png">
+  <img style="width: 5px; position: absolute; top: 18px; right: 20px;" src="../../assets/icon/more.png">
+
+</div> -->
+
+<ion-content>
+
+  <div style="height: 55px;"></div>
+
+  <div class="header-div">
+    <span id="cancel" (click)="closePage()">Cancel</span>
+    <span>Edit Alarm</span>
+    <span id="save" (click)="saveAlarm()">Save</span>
+  </div>
+
+  <!-- <div>
+    <ion-datetime displayFormat="MMMM" value="2012-12-15T13:47:20.789"></ion-datetime>
+  </div> -->
+
+  <ion-item class="alarm-options" style="position: relative; top: 72px;">
+    <!-- <ion-label>HH:mm</ion-label> -->
+    <ion-datetime displayFormat="hh:mm" (ionChange)="getTime()" placeholder="00:00" [(ngModel)]="alarmTime"></ion-datetime>
+  </ion-item>
+
+  <div class="alarm-options-div">
+
+     <ion-item class="alarm-options" (click)="alarmOptions()">
+      <span id="name" slot="start">AM / PM</span>
+      <span id="desc"> {{alarmDesc}} </span>
+      <ion-icon name="chevron-forward" size="small" slot="end" color="light"></ion-icon>
+    </ion-item>
+
+    <div id="border"></div>
+
+    <ion-item class="alarm-options" lines="full" (click)="repeatOptions()">
+      <span id="name" slot="start">Repeat</span>
+      <span id="desc"> {{alarmPeriod}} </span>
+      <ion-icon name="chevron-forward" size="small" slot="end" color="light"></ion-icon>
+    </ion-item>
+
+    <div id="border"></div>
+
+    <ion-item class="alarm-options">
+      <span id="name" slot="start">Label</span>
+      <span id="desc">
+        <ion-input style="text-align: right;" [(ngModel)]="alarmLabel"></ion-input>
+      </span>
+      <ion-icon name="chevron-forward" size="small" slot="end" color="light"></ion-icon>
+    </ion-item>
+
+    <!-- <div id="border"></div> -->
+
+    <!-- <ion-item class="alarm-options">
+      <span id="name" slot="start">Sound</span>
+      <ion-icon name="chevron-forward" size="small" slot="end" color="light"></ion-icon>
+    </ion-item> -->
+
+    <!-- <div id="border"></div> -->
+
+    <!-- <ion-item class="alarm-options">
+      <span id="name" slot="start">Snooze</span>
+      <ion-toggle></ion-toggle>
+    </ion-item>     -->
+  </div>
+
+  <div (click)="deleteAlert()" class="header-div" [style]="alarm?'opacity:1':'opacity:.5'" style="border-radius: 0; background: #f3355b;"> <span>Delete Alarm</span> </div>
+
+</ion-content>

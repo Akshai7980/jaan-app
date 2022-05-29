@@ -1,0 +1,65 @@
+ion-content{
+    // --background: url('../../assets/icon/dictionary-bg.png') 0 0/100% 100% no-repeat;
+
+    
+    &::part(background) {
+        background: url('../../assets/icon/dictionary-bg.png') no-repeat center center / cover;
+      }
+}
+
+ion-item, ion-toolbar, ion-searchbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+ion-searchbar{
+    border: .5px solid #5e94b1;
+    border-radius: 35px;
+    --box-shadow: 0;
+    height: 40px;
+    margin-top: 15px;
+    --clear-button-color: #297197;
+}
+
+ion-segment{
+    background-color: #ffffff;
+    border-radius: 24px;
+    height: 43px;
+}
+
+.segment-heading{
+    font-size: 15px;
+    position: relative;
+    top: -2px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.content{
+    // border-bottom: 1px solid #285f7e;
+    margin-bottom: -5px;
+
+    #mal{
+        font-size: 14px;
+        color: white;
+        margin-bottom: -10px;
+    }
+
+    #en{
+        color: gray;
+        font-size: 12px;
+        border-bottom: 1px solid #285f7e;
+        padding-bottom: 5px;
+    }
+}
+
+.content-en{
+    margin-bottom: -5px;
+
+    #en{
+        color: #ffffff;
+        font-size: 14px;
+        border-bottom: 1px solid #285f7e;
+        padding-bottom: 5px;
+    }
+}

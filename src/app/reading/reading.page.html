@@ -1,0 +1,29 @@
+<ion-header style="z-index: 0; margin-bottom: -12px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img src="../../assets/icon/reading-header.png">
+  
+    <p style="top: 42%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke">Reading</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="card staggered-animation" *ngFor="let d of data; let i = index" (click)="openLevels(i+1)" [style]="d.style">
+    
+    <img class="number" [src]="d.number">
+    <p>{{d.name}}</p>
+    <img class="arrow" [src]="d.arrow">
+    
+  </div>
+
+
+
+</ion-content>

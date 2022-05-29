@@ -1,0 +1,236 @@
+.border{
+    border: 0.5px solid lightgray;
+    margin-left: 11px;
+    width: calc(100% - 20px);
+    margin-bottom: 3px;
+}
+
+h6{
+    font-size: 15px;
+}
+
+.outer-div{
+    position: relative;
+    margin-right: -10px;
+}
+
+.upper{
+    box-shadow: 0px 0px 4px 0px grey;
+    height: 75px;
+    width: 98px;
+    margin-right: 22px;
+    margin-bottom: 75px;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    #image{
+        position: absolute;
+        top: -8px;
+        width: 85px;
+        left: 6px;
+    }
+
+    #arrow{
+        width: 22px;
+        position: relative;
+        top: 62px;
+    }
+}
+
+.lower{
+    box-shadow: 0px 0px 4px 0px grey;
+    top: 62px;
+    width: 96px;
+    left: 1px;
+    height: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+    padding-top: 20px;
+    position: absolute;
+
+    span{
+        font-size: 12px;
+        position: relative;
+        bottom: -5px;
+        text-transform: capitalize;
+    }
+
+}
+
+.mal-dict{
+    background: #01a0e2;
+    color: #ffffff;
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 22px;
+    padding: 15px 0px 0 27px;
+    font-size: 15px;
+    position: relative;
+    margin-bottom: -8px;
+
+    #button{
+        background: #392f85;
+        font-size: 10px;
+        width: 80px;
+        height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        padding: 8px;
+        position: absolute;
+        right: 20px;
+        top: 11px;
+    }
+}
+
+.levels{
+
+    // margin-bottom: 5px;
+
+    #img{
+        width: 35px;
+    }
+
+    #name{
+        position: absolute;
+        top: 5.5px;
+        left: 58px;
+        font-size: 14px;
+        // letter-spacing: .5px;
+    }
+    
+    #pc-number{
+        position: absolute;
+        top: 15px;
+        right: 42px;
+        font-size: 12px;
+    }
+
+    #pc{
+        color: lightgray;
+        position: absolute;
+        right: 30px;
+        top: 15px;
+        font-size: 12px;
+    }
+
+    #p-bar{
+        position: absolute;
+        bottom: 12px;
+        width: calc(100% - 84px);
+        height: 3px;
+        left: 58px;
+    }
+}
+
+.border-right{
+    width: calc(100% - 172px);
+    border: 0.5px solid lightgrey;
+    position: absolute;
+    top: 11px;
+    left: 160px;
+}
+
+.testimonials{
+    position: relative;
+   
+    #outer-div{
+        height: 180px;
+        width: 122px;
+        border-radius: 20px;
+        margin-right: 12px;
+        position: relative;
+        background-size: cover;
+    }
+
+    #lower{
+        color: #ffffff;
+        position: absolute;
+        bottom: 0px;
+        backdrop-filter: brightness(90%);
+        border-radius: 0 0 20px 20px;
+    }
+
+    #name{
+        text-align: center;
+        font-size: 14px;
+        width: 122px;
+        margin-top: 4px;
+        margin-bottom: 23px;
+    }
+
+    #line{
+        width: 86px;
+        border-bottom: .5px solid #ffffff;
+        margin-left: 18px;
+        position: absolute;
+        top: 22px;
+    }
+
+    #rating{
+        position: absolute;
+        left: 35px;
+        top: 10px;
+    }
+
+    #desc{
+        font-size: 9px;
+        margin-left: 8px;
+        width: 105px;
+    }
+}
+
+.jCorner{
+    position: relative;
+
+    #outer-div{
+        height: 200px;
+        border: 1px solid grey;
+        width: 250px;
+        border-radius: 30px;
+        margin-right: 12px;
+        position: relative;
+    }
+
+    #upper{
+        height: 60%;
+        width: 100%;
+        border-radius: 30px 30px 0px 0px;
+        background-size: cover;
+    }
+
+    #lower{
+        margin-top: -10px;
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+
+    #title{
+        font-size: 14px;
+        color: darkblue;
+        font-weight: bold;
+        margin-bottom: -2px;
+    }
+
+    #date{
+        font-size: 11px;
+        color: darkred;
+        margin-bottom: -2px;
+    }
+
+    #desc{
+        font-size: 9px;
+    }
+}
+
+.image-error{
+    font-size: 12px;
+    position: relative;
+    padding-bottom: 5px;
+    justify-content: center;
+    transform: translate(-50%, 0);
+    left: 50%;
+}

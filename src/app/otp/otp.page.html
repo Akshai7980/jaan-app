@@ -1,0 +1,43 @@
+<ion-header style="position: relative; height: 45px; z-index: 0;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+        <ion-back-button icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-toolbar>
+    <ion-title>otp</ion-title>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+
+    <!-- <div class="header" style="margin-bottom: 0; padding: 0px 10px 0 10px;">Please enter the OTP sent to <span style="font-weight: bold;"> {{registerFormValue.phone}} </span></div> -->
+    <div class="header" style="margin-bottom: 0; padding: 0px 10px 0 10px;">Please enter the OTP sent to <span style="font-weight: bold;"> {{registerFormValue.email}} </span></div>
+
+    <!-- <div class="header" style="color: gray; margin-top: 25px;">Not received your code? <span style="font-weight: bold; color: #2f3394" (click)="getOtp(registerFormValue.phone.substring(1))"> &nbsp; Resend Code </span></div> -->
+    <div class="header" style="color: gray; margin-top: 25px;">Not received your code? <span style="font-weight: bold; color: #2f3394" (click)="getOtp(registerFormValue.email)"> &nbsp; Resend Code </span></div>
+
+    <!-- <ion-row style="text-align: center;">
+  <ion-col>
+   <ion-input #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')">
+   </ion-input>
+   <ion-input #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)">
+   </ion-input>
+   <ion-input #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)">
+   </ion-input>
+   <ion-input #otp4 required maxLength="1" (keyup)="otpController($event,'',otp3)">
+   </ion-input>
+  </ion-col>
+</ion-row> -->
+
+    <div style="padding: 0 70px 0 70px;">
+
+        <ion-input style="border-bottom: 1px solid #2f3394; text-align: center; font-size: 25px;" [(ngModel)]="otpInput"></ion-input>
+
+    </div>
+
+    <div style="padding: 0px 45px 0 45px; margin-top: 50px;">
+        <ion-button (click)="otpController2()" expand="block" style="--background: linear-gradient(#1662b0, #2f3394); height: 40px;"> Submit </ion-button>
+        <!-- <ion-button [disabled]="otpInput.length!==4" (click)="otpController2()" expand="block" style="--background: linear-gradient(#1662b0, #2f3394); height: 40px;"> Submit </ion-button> -->
+    </div>
+
+
+</ion-content>

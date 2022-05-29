@@ -1,0 +1,57 @@
+<ion-header style="z-index: 0; margin-bottom: -12px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  
+    <ion-toolbar>
+  
+      <app-explore-container page="vocabularyInner" headerColor="white"></app-explore-container>
+  
+      <img style="width: 100%; height: 220px;" src="../../assets/icon/vocabulary-header.png">
+  
+      <p style="top: 50%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke"> {{data.header}} </p>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div style="padding: 0 20px">
+  
+      <div
+      class="container"
+      *ngFor="let d of data.content; let i = index;"
+      >
+        <div *ngIf="common.favourites?d.star===1:(d.star===0||d.star===1)">
+
+          <div class="background-div" [style]="'background-color:' + common.colors[i%9]">
+    
+            <div class="content-div" *ngFor="let w of d.words">
+              <p> {{w.malawords}} </p>
+              <div class="right-div">
+                <p>( {{w.pronounciation}} )</p>
+                <img (click)="common.playAudio(w.pronouncefiles[0])" src="../../assets/icon/play.png">
+              </div>
+            </div>
+    
+            <div class="content-div-last">
+              <p> {{d.englishword}} </p>
+              <div class="right-div">
+                <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===0" name="star-outline" color="dark"></ion-icon>
+                <ion-icon (click)="addRemoveFav(i, d.contentid)" *ngIf="d.star===1" name="star" color="dark"></ion-icon>
+                <!-- <img src="../../assets/icon/favourite.png"> -->
+              </div>
+            </div>
+    
+          </div>
+
+          <div style="border-bottom: 1px solid #a5a0a0; padding-bottom: 10px;"></div>
+
+        </div>
+
+      </div>
+  
+    </div>
+    
+  <!-- Worksheet / Games -->
+  <app-explore-container [aspectId]="levelId" aspectSubId="" [worksheet]="data.worksheet" [games]="data.games"></app-explore-container>
+
+  </ion-content>

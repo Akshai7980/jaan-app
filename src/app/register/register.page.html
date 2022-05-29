@@ -1,0 +1,255 @@
+<ion-header style="z-index: 0;">
+
+    <div style="text-align: center; margin-bottom: -90px; margin-top: -20px;">
+        <img src="../../assets/icon/login-header.png">
+        <img style="width: 90px; position: relative; top: -170px;" src="../../assets/icon/logo.png">
+        <div style="color: #3e368d; text-align: center; font-size: 15px; font-weight: bold; margin-bottom: 5px; top: -90px; position: relative;">REGISTER</div>
+
+    </div>
+
+</ion-header>
+
+<ion-content>
+
+    <!-- <div style="color: #3e368d; text-align: center; font-size: 17px; font-weight: bold; margin-bottom: 20px;">REGISTER</div> -->
+    <div style="text-align: center;"><img style="width: 35px;" src="../../assets/icon/login-triangle.png"></div>
+    <div style="text-align: center; box-shadow: 0px 0px 10px 0px lightgrey; margin-top: -3px; margin-left: 15px; margin-right: 15px; border-radius: 10px; padding-bottom: 0px; padding-top: 0px; margin-bottom: 0px; height: calc(100% - 30px); width: calc(100% - 30px);">
+
+        <div [formGroup]="registerForm" style="height: calc(100% - 0px); width: 100%; overflow-y: auto;">
+
+            <div style="color: #d01d1d; margin-top: 13px;font-size: 14px;
+    position: absolute;
+    z-index: 99;
+    top: 18px;
+    width: calc(100% - 29px);">
+                You can sign up in this device only with one email address.
+                <!-- <p style="margin: 5px 15px 0px 15px;
+                color: #2f3494;
+                font-size: 11px;
+                letter-spacing: .5px;
+                font-weight: 600;">( First Name, Country of Location, Phone Number and Email ID are mandatory fields, rest are optional.)</p> -->
+            </div>
+
+            <ion-item lines="none" style="margin-top: 16px;">
+                <ion-input placeholder="First Name" type="text" formControlName="name" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 40px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+                    <!-- <img src="../../assets/icon/login-person.png" alt="" class="text-field-icons"> -->
+                    <ion-icon name="medical" style="color: red;
+                                    right: 10px;
+                                    position: absolute;
+                                    font-size: 10px;"></ion-icon>
+                    <ion-icon name="medical" style="color: red;
+                                    right: 23px;
+                                    position: absolute;
+                                    font-size: 10px;"></ion-icon>
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.get('name').hasError('minlength') || registerForm.get('name').hasError('pattern') ||registerForm.get('name').hasError('required') ) && (registerForm.get('name').touched || submittedForm)" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please enter a valid name</span>
+            </p>
+
+            <ion-item lines="none">
+                <ion-input placeholder="Last Name (Optional)" formControlName="lastname" type="text" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+                    <!-- <img src="../../assets/icon/login-lock.png" alt="" class="text-field-icons"> -->
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.get('lastname').hasError('pattern') ||registerForm.get('lastname').hasError('required') ) && (registerForm.get('lastname').touched || submittedForm)" style="left: -4px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please enter a last name</span>
+            </p>
+
+            <ion-radio-group formControlName="gender" mode="md">
+
+                <ion-row>
+                    <ion-label style="margin-left: 26px; margin-top: 5px; color: gray; font-size: 14px;">Gender (Optional)</ion-label>
+                    <div style="margin-top: 27px; margin-left: -30px; width: 50px;">
+                        <ion-label style="font-size: 12px; color: grey; position: relative; left: 40px; top: -1px;">Male</ion-label>
+                        <ion-radio slot="start" value="male" style="width: 12px; height: 12px; margin-left: -10px; margin-top: 5px; --border-width: 1.5px; --color: #3e368d"></ion-radio>
+                    </div>
+
+                    <div style="margin-top: 27px; margin-left: 20px; width: 50px;">
+                        <ion-label style="font-size: 12px; color: grey; position: relative; left: 55px; top: -1px;">Female</ion-label>
+                        <ion-radio slot="start" value="female" style="width: 12px; height: 12px; margin-left: -10px; margin-top: 5px; --border-width: 1.5px; --color: #3e368d"></ion-radio>
+                    </div>
+
+                    <div style="margin-top: 27px; margin-left: 40px; width: 50px;">
+                        <ion-label style="font-size: 12px; color: grey; position: relative; left: 55px; top: -1px;">Others</ion-label>
+                        <ion-radio slot="start" value="others" style="width: 12px; height: 12px; margin-left: -10px; margin-top: 5px; --border-width: 1.5px; --color: #3e368d"></ion-radio>
+                    </div>
+                </ion-row>
+
+            </ion-radio-group>
+
+            <p *ngIf="(registerForm.get('gender').hasError('required') ) && (registerForm.get('gender').touched || submittedForm)" style="left: -10px; top: 9px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please select a gender</span>
+            </p>
+
+            <!-- <ion-item lines="none" style="margin-top: 12px;">
+      <ion-input placeholder="Birth Year" formControlName="dob" type="number" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+      </ion-input>
+    </ion-item> -->
+            <div div style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 25px; margin-right: 25px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px; position: relative;">
+
+                <ion-datetime formControlName="dob" displayFormat="YYYY" pickerFormat="YYYY" (ionChange)="setdob()" placeholder="Birth Year (Optional)" style="width: 100%; height: 100%">
+                </ion-datetime>
+
+            </div>
+            <p *ngIf="(registerForm.get('dob').hasError('pattern') ||registerForm.get('dob').hasError('required') ) && (registerForm.get('dob').touched || submittedForm)" style="left: -3px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please enter a birth year</span>
+            </p>
+
+            <ion-radio-group formControlName="profession" mode="md">
+
+                <ion-row>
+                    <div style="margin-top: 8px; margin-left: 18px; width: 85px;">
+                        <ion-label style="font-size: 12px; color: grey; position: relative; left: 58px; top: -1px;">Student</ion-label>
+                        <ion-radio slot="start" value="student" style="width: 12px; height: 12px; margin-left: -10px; margin-top: 5px; --border-width: 1.5px; --color: #3e368d"></ion-radio>
+                    </div>
+
+                    <div style="margin-top: 8px; margin-left: 35px; width: 85px;">
+                        <ion-label style="font-size: 12px; color: grey; position: relative; left: 8px; top: -1px;">Professional</ion-label>
+                        <ion-radio slot="start" value="professional" style="width: 12px; height: 12px; margin-left: -84px; margin-top: 5px; --border-width: 1.5px; --color: #3e368d"></ion-radio>
+                    </div>
+                </ion-row>
+            </ion-radio-group>
+            <p *ngIf="(registerForm.get('profession').hasError('required') ) && (registerForm.get('profession').touched || submittedForm)" style="left: 10px; top: 8px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please select your occupation</span>
+            </p>
+
+            <!-- <ion-item lines="none" style="margin-top: 10px;"> -->
+            <div div style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 25px; margin-right: 25px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px; position: relative;">
+                <ion-icon name="medical" style="color: red;
+                margin-top: 20px;
+                right: 10px;
+                position: absolute;
+                font-size: 10px;"></ion-icon>
+                <ion-icon name="medical" style="color: red;
+                margin-top: 20px;
+                right: 23px;
+                position: absolute;
+                font-size: 10px;"></ion-icon>
+                <ion-select [interfaceOptions]="{'cssClass': 'registerCountrySelect2'}" interface="popover" formControlName="location" (ionChange)="setDialCode()" placeholder="Country of Location" style="width: 100%; height: 100%">
+
+                    <ion-select-option *ngFor="let c of countries" [value]="c"> {{c.name}} </ion-select-option>
+                </ion-select>
+
+            </div>
+            <!-- </ion-item> -->
+            <p *ngIf="(registerForm.get('location').hasError('required') ) && (registerForm.get('location').touched || submittedForm)" style="left: 12px; top: -3px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please select a country location</span>
+            </p>
+
+            <div div style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 8px; margin-left: 25px; margin-right: 25px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px; position: relative;">
+
+                <ion-select [interfaceOptions]="{'cssClass': 'registerCountrySelect2'}" interface="popover" formControlName="country" placeholder="Native Country (Optional)" style="width: 100%; height: 100%">
+                    <ion-select-option *ngFor="let c of countries"> {{c.name}} </ion-select-option>
+                </ion-select>
+
+            </div>
+            <p *ngIf="(registerForm.get('country').hasError('pattern') ||registerForm.get('country').hasError('required') ) && (registerForm.get('country').touched || submittedForm)" style="left: 7px; top: -3px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please select a native country</span>
+            </p>
+
+            <ion-item lines="none">
+                <ion-input placeholder="Email" formControlName="email" type="email" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 3px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+                    <ion-icon name="medical" style="color: red;
+                    right: 10px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+                    <ion-icon name="medical" style="color: red;
+                    right: 23px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.get('email').hasError('email') || registerForm.get('email').hasError('required') ) && (registerForm.get('email').touched || submittedForm)" style="left: -3px; top: -3px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please enter a valid email</span>
+            </p>
+
+            <ion-item lines="none">
+                <ion-input placeholder="Phone Number" formControlName="phone" type="number" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 3px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 92px;">
+                    <ion-icon name="medical" style="color: red;
+                    right: 10px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+                    <ion-icon name="medical" style="color: red;
+                    right: 23px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+
+                    <span style="position: absolute; padding: 13px 0 0 20px; color: white; height: 100%; width: 28%; border-radius: 22px 0 0 22px; background: linear-gradient(#1662b0, #2f3394);"> 
+          {{dialCode}} 
+        </span>
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.get('phone').hasError('pattern') || registerForm.get('phone').hasError('required') ) && (registerForm.get('phone').touched || submittedForm)" style="left: 20px; top: -3px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Please enter a valid phone number</span>
+            </p>
+
+            <ion-item lines="none">
+                <ion-input placeholder="Password" formControlName="password" type="password" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 3px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+                    <ion-icon name="medical" style="color: red;
+                    right: 10px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+                    <ion-icon name="medical" style="color: red;
+                    right: 23px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.get('password').hasError('pattern') ||registerForm.get('password').hasError('required') ) && (registerForm.get('password').touched || submittedForm)" style="left: 174px; top: -6px; text-align: left; width: calc(100% - 10px); line-height: 11px; margin-top: 1px;"
+                class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Password should be minimum 8 characters including an uppercase, a numeric and a special character</span>
+            </p>
+
+            <ion-item lines="none">
+                <ion-input placeholder="Confirm Password" formControlName="confirmPassword" type="password" style="border-radius: 45px; box-shadow: 0px 0px 10px 0px lightgrey; height: 45px; margin-top: 3px; margin-left: 10px; margin-right: 10px; margin-bottom: 10px; font-size: 15px; --padding-start: 40px;">
+                    <ion-icon name="medical" style="color: red;
+                    right: 10px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+                    <ion-icon name="medical" style="color: red;
+                    right: 23px;
+                    position: absolute;
+                    font-size: 10px;"></ion-icon>
+
+                </ion-input>
+            </ion-item>
+            <p *ngIf="(registerForm.value.password!==registerForm.value.confirmPassword ||registerForm.get('confirmPassword').hasError('required') ) && registerForm.get('confirmPassword').touched" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>Passwords donot match</span>
+            </p>
+
+            <div style="margin-top: 0px; margin-left: -50px;">
+                <ion-checkbox formControlName="acceptTerms" mode="md" style="width: 10px; height: 10px; --border-width: 1px; --border-color: #1662b0;"></ion-checkbox>
+                <span style="color: #c0bfc0; font-size: 12px; margin-left: 10px; position: relative; top: -1px;">Accept all the Terms & Conditions</span>
+            </div>
+            <p *ngIf="(registerForm.get('acceptTerms').hasError('pattern') ||registerForm.get('acceptTerms').hasError('required') ) && (registerForm.get('acceptTerms').touched || submittedForm)" style="left: 33px; top: 5px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message -->
+                <span>You should accept our terms & conditions</span>
+            </p>
+
+            <p *ngIf="submittedForm" style="position: relative; margin-top: 20px; left: -67px;" class="ion-no-margin ion-no-padding error-message">
+                <!-- Error Message From Ajax-->
+                <span style="position: absolute; top: -8px;"> {{ errorMessage }} </span>
+            </p>
+
+            <ion-button (click)="register()" style="width: 279px; height: 45px; font-size: 16px; margin-top: 20px; --background: linear-gradient(#1662b0, #2f3394);" shape="round">SIGN UP</ion-button>
+
+            <p style="font-size: 12px; position: relative; top: 10px; margin-bottom: 12px;">Already have an acount ?<span (click)="goLogin()" style="color: #1662b0; font-size: 15px; font-weight: bold; margin-left: 10px;">Login</span></p>
+
+        </div>
+    </div>
+
+</ion-content>

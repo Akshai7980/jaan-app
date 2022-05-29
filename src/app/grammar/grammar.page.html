@@ -1,0 +1,155 @@
+<ion-header style="z-index: 0">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <!-- <ion-title>listening-inner</ion-title> -->
+
+    <app-explore-container headerColor="white"></app-explore-container>
+
+    <img src="../../assets/icon/grammar-header.png">
+
+    <div>
+      <p style="top: 11%; position: absolute; left: 22px; font-size: 28px; color: whitesmoke">Grammar</p>
+      <ion-searchbar class="grammar-searchbar"
+        style="top: 22%; position: absolute; z-index: 10; --background: #c9cbf1; --placeholder-opacity: 1; --border-radius: 20px; width: 165px; left: calc(100% - 175px);">
+      </ion-searchbar>
+      <img style="top: 22%; position: absolute; z-index: 10; width: 37px; left: calc(100% - 50px);"
+        src="../../assets/icon/search-blue.png">
+      <p style="color: #c9cbf1; position: absolute; top: 32%; font-size: 12px; left: 22px;">Click on any topic to get
+        the video lesson and notes</p>
+    </div>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: -10px;">
+    <p *ngFor="let d of data; let i = index" (click)="openSection(d.id)" class="p-box" [style]="'background:' + color[i%10]" [class]="i%2===0?'':'padding-top'"> {{d.level_name}} </p>
+  </div> -->
+
+  <div style="display: flex; flex-wrap: wrap; width: 315px; margin: -1px auto auto auto;">
+    <div *ngFor="let d of data; let i = index" (click)="openSection(d.id)" class="div-box" [style]=" [ ' background-image:url(../../assets/icon/grammar ' + jigsaw[i%16] + ' .png); ' ] + [ d.level_name.length>15? ' padding-top:48px; ' : ' '] "> 
+    <!-- <div *ngFor="let d of data; let i = index" (click)="openSection(d.id)" class="div-box" [style]="['background-image:url(../../assets/icon/grammar' + jigsaw[i%16] + '.png);']+[d.level_name.length>15?'padding-top:48px;':'']"> -->
+      <div> {{d.level_name}} </div>
+    </div>
+  </div>
+
+  <!-- <ion-slides #slides pager="true" (ionSlideWillChange)="setSlide()">
+    
+    <ion-slide> -->
+  <!-- 
+      <div class="div1">
+        <img id="img1" src="../../assets/icon/grammar1.png"> 
+        <img id="img2" src="../../assets/icon/grammar12.png"> 
+        <img id="img1" style="transform: rotate(90deg); position: relative; left: 55px;" src="../../assets/icon/grammar4.png"> 
+      </div>
+
+      <div class="div2">
+        <img id="img1" src="../../assets/icon/grammar7.png"> 
+        <img (click)="openSection(108)" id="img2" src="../../assets/icon/grammar3.png"> 
+        <img id="img1" src="../../assets/icon/grammar5.png"> 
+        <img id="img2" src="../../assets/icon/grammar1.png"> 
+        <img id="img1" src="../../assets/icon/grammar6.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+      </div> -->
+
+  <!-- <div class="ion-content">
+
+      </div> -->
+
+  <!-- <div  style="display: flex; flex-wrap: wrap;">
+        <p *ngFor="let d of data; let i = index" (click)="openSection(d.id)" class="p-box" [style]="i%2===0?'':'padding-top: 5px;'"> {{d.level_name}} </p>
+      </div> -->
+
+  <!-- <div class="div2" style="margin-left: -75px;">
+        <img id="img1" src="../../assets/icon/grammar8.png"> 
+        <img id="img2" src="../../assets/icon/grammar10.png"> 
+        <img id="img1" src="../../assets/icon/grammar11.png"> 
+        <img id="img2" src="../../assets/icon/grammar12.png"> 
+        <img id="img1" src="../../assets/icon/grammar14.png"> 
+        <img id="img1" src="../../assets/icon/grammar13.png"> 
+        <img id="img1" src="../../assets/icon/grammar14.png"> 
+      </div>
+
+      <div class="div2">
+        <img id="img1" style="top: 0;" src="../../assets/icon/grammar1.png"> 
+        <img id="img2" src="../../assets/icon/grammar3.png"> 
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar5.png"> 
+        <img id="img1" src="../../assets/icon/grammar6.png"> 
+        <img id="img1" style="transform: rotate(270deg);" src="../../assets/icon/grammar3.png"> 
+      </div>
+
+      <div class="div2" style="margin-left: -75px;">
+        <img id="img1" src="../../assets/icon/grammar8.png"> 
+        <img id="img2" src="../../assets/icon/grammar9.png"> 
+        <img id="img1" src="../../assets/icon/grammar8.png"> 
+        <img id="img2" src="../../assets/icon/grammar12.png"> 
+        <img id="img1" src="../../assets/icon/grammar13.png"> 
+        <img id="img2" src="../../assets/icon/grammar10.png"> 
+        <img id="img1" style="transform: rotate(90deg); left: -79px;" src="../../assets/icon/grammar10.png"> 
+        <img id="img1" style="left: -78px;" src="../../assets/icon/grammar14.png"> 
+      </div>
+      
+      <div class="div2">
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar7.png"> 
+        <img id="img2" src="../../assets/icon/grammar1.png"> 
+        <img id="img1" src="../../assets/icon/grammar6.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+      </div>
+
+      <div class="div2" style="margin-left: -75px;">
+        <img id="img2" src="../../assets/icon/grammar9.png"> 
+        <img id="img2" src="../../assets/icon/grammar10.png"> 
+        <img id="img1" src="../../assets/icon/grammar15.png"> 
+        <img id="img2" src="../../assets/icon/grammar16.png"> 
+        <img id="img1" src="../../assets/icon/grammar14.png"> 
+        <img id="img1" src="../../assets/icon/grammar13.png"> 
+        <img id="img1" src="../../assets/icon/grammar15.png"> 
+      </div>
+
+      <div class="div2">
+        <img id="img1" style="top: 0;" src="../../assets/icon/grammar1.png"> 
+        <img id="img2" src="../../assets/icon/grammar3.png"> 
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar5.png"> 
+        <img id="img1" src="../../assets/icon/grammar6.png"> 
+        <img id="img2" src="../../assets/icon/grammar3.png"> 
+      </div>
+
+      <div class="div2">
+        <img id="img1" src="../../assets/icon/grammar4.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" src="../../assets/icon/grammar7.png"> 
+        <img id="img2" src="../../assets/icon/grammar1.png"> 
+        <img id="img1" src="../../assets/icon/grammar6.png"> 
+        <img id="img2" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" style="transform: rotate(180deg); left: -99px" src="../../assets/icon/grammar2.png"> 
+        <img id="img1" style="left: -77px;" src="../../assets/icon/grammar4.png"> 
+      </div>
+
+      <div class="div2" style="margin-left: -75px;">
+        <img id="img2" src="../../assets/icon/grammar9.png"> 
+        <img id="img2" src="../../assets/icon/grammar10.png"> 
+        <img id="img1" src="../../assets/icon/grammar15.png"> 
+        <img id="img2" src="../../assets/icon/grammar16.png"> 
+        <img id="img1" src="../../assets/icon/grammar14.png"> 
+        <img id="img1" src="../../assets/icon/grammar13.png"> 
+        <img id="img2" src="../../assets/icon/grammar10.png"> 
+      </div> -->
+
+  <!-- </ion-slide>
+
+  </ion-slides> -->
+
+</ion-content>

@@ -1,0 +1,39 @@
+.error-message{
+    margin-left: -150px;
+    margin-top: -7px;
+    position: relative;
+    z-index: 1;
+}
+
+.error-message span{
+    font-size: 0.7em;
+    color: #d01d1d;
+}
+
+ion-select::part(icon) {
+    display: none;
+}
+
+ion-select::part(placeholder) {
+    opacity: .5;
+    position: absolute;
+    left: 45px;
+}
+
+ion-select::part(text) {
+    position: absolute;
+    left: 45px;
+}
+
+ion-datetime::part(text) {
+    position: absolute;
+    left: 45px;
+    top: 13px;
+}
+
+ion-datetime::part(placeholder) {
+    position: absolute;
+    left: 45px;
+    top: 13px;
+}
+  

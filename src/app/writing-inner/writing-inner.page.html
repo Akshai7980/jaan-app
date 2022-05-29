@@ -1,0 +1,102 @@
+<ion-header style="z-index: 0; margin-bottom: -26px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-toolbar>
+    
+      <app-explore-container headerColor="white"></app-explore-container>
+      
+      <img [src]="'../../assets/icon/writing-header-' + data.headerIndex + '.png'">
+      
+      <p style="top: 27%; position: absolute; left: 35px; font-size: 25px; color: whitesmoke"> {{data.header}} </p>
+    
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+   
+  <p class="common-text">Select any letters to activate its writing page</p>
+  
+  <ion-slides #slides pager="true" (ionSlideWillChange)="setSlide()">
+    
+    <ion-slide *ngFor="let d of data?.content">
+      
+      <div class="sub-div">
+
+        <div class="outer-div">
+          <div *ngFor="let s of d.sublevelcontents; let i = index" [class]="s.malayalamword.length>2?'repeating-div-large':'repeating-div'">
+            <p (click)="selectLetter(s, i)" [style]="selectedLetter[i]?'color:' + data.color:''"> {{s.malayalamword}} </p>
+          </div>
+        </div>
+        
+        <div class="border-line"></div>
+
+        <div class="letterbox">
+          <!-- <p> {{d.sublevelname}} </p> -->
+          <img id="gif" [src]="data.selectedFiles.gif">
+        </div>
+        
+        <!-- <div class="writing-board">
+          <img class="icon-color"  src="../../assets/icon/wri-color.png">
+          <img class="icon-speaker"  src="../../assets/icon/wri-sound.png">
+        </div> -->
+
+        <!-- <div *ngIf="data.content" class="signature-pad writing-board" (touchstart)="lockSlider(true)" (touchend)="lockSlider(false)">
+          <div style="border-bottom: 1px solid white; position: relative; top: 68px;"></div>
+          <div style="border-bottom: 1px solid white; position: relative; top: 120px;"></div>
+          <div style="border-bottom: 1px solid white; position: relative; top: 170px;"></div>
+          <canvas class="signature-pad-canvas" #canvas style="touch-action: none;"></canvas>
+          <img class="icon-color" src="../../assets/icon/wri-color.png">
+          <ion-buttons slot="end" style="position: absolute; right: 45px; bottom: 20px">
+            <ion-button color="light" expand="full" [disabled]="isCanvasBlank()" (click)="undo()">
+              <ion-icon name="arrow-undo" size="medium"></ion-icon>
+            </ion-button>
+            <ion-button color="light" expand="full" (click)="clear()"> Clear</ion-button>
+          </ion-buttons>
+        </div> -->
+      
+      </div>
+
+      
+    </ion-slide>
+
+  </ion-slides>
+
+
+  <div class="signature-pad writing-board">
+    <div style="border-bottom: 1px solid white; position: relative; top: 68px;"></div>
+    <div style="border-bottom: 1px solid white; position: relative; top: 120px;"></div>
+    <div style="border-bottom: 1px solid white; position: relative; top: 170px;"></div>
+    <canvas class="signature-pad-canvas" #canvas style="touch-action: none;"></canvas>
+    
+    <img (click)="openColors()" class="icon-color"  src="../../assets/icon/wri-color.png">
+    <div class="pen-colors" *ngIf="isOpenColors">
+      <div style="width: 45px; position: absolute; height: inherit; transform: translate(-50%, -50%); left: 25.5%; top: 56%;">
+          <div *ngFor="let d of dots" class="dots">
+              <div (click)="selectColor('', d)" class="dots-div" [style]="'height:' + d + 'px;' + 'width:' + d + 'px;'"> </div>
+          </div>
+      </div>
+
+      <div style="width: 105px; position: absolute; right: 0; height: inherit; display: flex; flex-wrap: wrap; padding: 8px 0 0 2px">
+          <div *ngFor="let c of colors" class="colors">
+              <div (click)="selectColor(c, '')" style="border-radius: 50%; height: 20px; width: 20px" [style]="'background:'+c"> </div>
+          </div>
+      </div>
+      
+     
+      <img id="img" src="../../assets/icon/login-triangle.png">
+    </div>
+
+    <ion-buttons slot="end" style="position: absolute; right: 45px; bottom: 20px">
+      <ion-button color="light" expand="full" [disabled]="isCanvasBlank()" (click)="undo()">
+        <ion-icon name="arrow-undo" size="medium"></ion-icon>
+      </ion-button>
+      <ion-button color="light" expand="full" (click)="clear()"> Clear</ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- Worksheet / Games -->
+  <!-- <app-explore-container aspectId="4" [aspectSubId]="data.sublevelId" [worksheet]="data.worksheet"></app-explore-container> -->
+
+</ion-content>

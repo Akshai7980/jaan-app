@@ -1,0 +1,8 @@
+{
+  "name": "Jaan",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

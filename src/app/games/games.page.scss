@@ -1,0 +1,137 @@
+ion-content{
+    --background: url('../../assets/icon/games-bg.jpg') 0 0/100% 100% no-repeat;
+}   
+
+ion-toolbar{
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.arrow{
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 53%;
+    position: absolute;
+    width: 14px;
+}
+
+.dot{
+    background: #9b96f4;
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 189px;
+    border-radius: 50%;
+    border: 2px solid #5c50e4;
+}
+
+.squirrel{
+    width: 60px;
+    position: absolute;
+    transform: scaleX(-1);
+    top: 137px;
+    left: 105px;
+}
+
+.squirrel-gif{
+    width: 150px;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 72px;
+    left: 22%;
+}
+
+@media only screen and (max-height: 700px) {
+
+    .squirrel-gif{
+        width: 125px;
+        position: absolute;
+        transform: translateX(-50%);
+        top: 110px;
+        left: 24%;
+    }
+
+    .squirrel-box{
+        top: 112px !important;
+    }
+    
+    .squirrel-box:after{
+        margin-left: -4px !important;
+      }
+  }
+
+.squirrel-box{
+    margin: 0;
+    position: absolute;
+    top: 75px;
+    transform: rotate(270deg);
+    height: 98px;
+    left: -18px;
+    width: 130px;
+    border-radius: 15px;
+    background: #9b96f4;
+    color: white;
+    font-size: 9px;
+}
+
+.squirrel-box:after{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 100%;
+    left: 50%;
+    margin-left: -42px;
+    content: "";
+    transform: rotate(45deg);
+    margin-top: -5px;
+    background: #9b96f4;
+  }
+
+.games{
+    position: relative;
+    height: 140px;
+    border: 2px solid #ffffff;
+    margin: 100px auto;
+    box-sizing: border-box;
+    transform: rotate(90deg);
+    width: 90px;
+    left: 90px;
+    top: 120px;
+    border-radius: 6px;
+}
+
+.games:after{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-top: 0px solid #ffffff;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border-left: 0px solid #ffffff;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    content: "";
+    transform: rotate(45deg);
+    margin-top: -7px;
+    background: #746ced;
+  }
+
+  .inner-box{
+    height: calc(50%);
+  }
+
+  .game-title{
+    position: absolute;
+    top: 90px;
+    transform: rotate(-128deg);
+    font-size: 11px;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    left: 5px;
+    z-index: 1;
+  }

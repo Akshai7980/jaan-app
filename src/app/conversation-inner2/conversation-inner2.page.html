@@ -1,0 +1,46 @@
+<ion-header style="z-index: 0">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+    <!-- <ion-title>listening-inner</ion-title> -->
+
+    <app-explore-container page="conversation2" headerColor="white"></app-explore-container>
+    
+    <img [src]="data.header" style="width: 100%; height: 260px;">
+  
+    <p style="top: 72%; position: absolute; padding-left: 30px; backdrop-filter: brightness(70%); font-size: 23px; color: white; width: 100%;">Know The Words</p>
+  </ion-toolbar>
+
+  <div style="padding-left: 15px; padding-right: 15px; padding-bottom: 10px; margin-top: 25px; margin-bottom: 10px;">
+    <ion-button (click)="openTemp()" class="audio-button" shape="round" expand="block" >{{data.buttonText}}</ion-button>
+  </div>
+
+</ion-header>
+
+<ion-content>
+  
+  <div *ngFor="let d of data.content; let i = index;" class="content-div">
+
+    <div *ngIf="common.favourites?d.star===1:(d.star===0||d.star===1)">
+
+      <div class="malayalam">{{d.word}}</div>
+      <div class="malayalam" style="top: 10px; font-size: 12px; font-weight: lighter;">{{d.pronounciation}}</div>
+      <div class="english">{{d.meaning}}
+        <ion-icon (click)="addRemoveFav(i, d.sub_cont_id)" class="icon-star" *ngIf="d.star===0"  name="star-outline" color="dark"></ion-icon>
+        <ion-icon (click)="addRemoveFav(i, d.sub_cont_id)" class="icon-star" *ngIf="d.star===1" name="star" color="dark"></ion-icon>
+        <!-- <ion-icon class="icon-star" name="star-outline" color="dark"></ion-icon> -->
+      </div>
+          
+      
+      <div class="border-line"></div>
+
+    </div>
+  
+  </div>
+
+  <!-- Worksheet / Games -->
+  <!-- <app-explore-container aspectId="7"></app-explore-container> -->
+
+</ion-content>

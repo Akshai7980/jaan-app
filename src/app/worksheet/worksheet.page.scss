@@ -1,0 +1,49 @@
+#outer-div{
+    margin: 0 auto;
+    width: 300px;
+}
+
+#outer-div div{
+    background: #f2f2f2;
+    height: 70px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#outer-div ion-avatar{
+    // border: 3.5px solid #6eae40;
+    border: 3.5px solid var(--color);
+    position: relative;
+    height: 40px;
+    width: 40px;
+    left: 20px;
+    top: 14px;
+}
+
+#outer-div span{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    font-weight: bold;
+}
+
+#outer-div p{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 64%;
+    top: 26%;
+    letter-spacing: 1px;
+    font-size: 15px;
+    width: 215px;
+    text-align: left;
+}
+
+.box + .box{
+    margin-top: 10px;
+}
+
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }

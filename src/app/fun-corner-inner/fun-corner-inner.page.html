@@ -1,0 +1,331 @@
+<ion-header style="z-index: 0; margin-bottom: -54px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: black;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  
+    <ion-toolbar>
+        
+      <app-explore-container headerColor="black"></app-explore-container>
+
+      <!-- <div style="height: 136px"></div> -->
+      
+    </ion-toolbar>
+
+    <div style="padding-left: 35px; padding-right: 35px;">
+        <p style="font-size: 17px; font-weight: bold; width: calc(100%); border-bottom: 1px solid lightgray; padding-bottom: 3px; margin-top: 0px; margin-bottom: 0px;">Fun Folder</p>
+        <ion-segment style="border-bottom: 1px solid gray;" (ionChange)="segmentChanged($event)" value="home" mode="md">
+    
+            <ion-segment-button value="home" [style]="segmentSelected=='home'?'font-weight: bold;':''" style="width: 0px; min-width: 75px; margin-left: -25px;">
+              <ion-label class="segment-heading">Seen</ion-label>
+            </ion-segment-button>
+    
+            <ion-segment-button value="latest" [style]="segmentSelected=='latest'?'font-weight: bold;':''" style="margin-left: -5px">
+              <ion-label class="segment-heading">Latest</ion-label>
+            </ion-segment-button>
+    
+            <ion-segment-button value="categories" [style]="segmentSelected=='categories'?'font-weight: bold;':''" style="margin-left: -5px">
+              <ion-label class="segment-heading">Categories</ion-label>
+            </ion-segment-button>
+    
+            <ion-segment-button value="saved" [style]="segmentSelected=='saved'?'font-weight: bold;':''" style="margin-right: -23px;">
+              <ion-label class="segment-heading">Saved</ion-label>
+            </ion-segment-button>
+    
+          </ion-segment>
+    
+          <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="filterItems()" class="fun-corner-searchbar" placeholder="Search Here" mode="md"></ion-searchbar>
+    
+          </div>
+  </ion-header>
+
+<ion-content>
+
+  <div *ngIf="segmentSelected==='home'">
+
+    <!-- Home -->
+    <div class="card" *ngFor="let d of data; let i = index;">
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==0" name="star-outline" color="light"></ion-icon>
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==1" name="star"></ion-icon>
+
+      <!-- <img style="margin-top: 14px; position: absolute; right: 54px; width: 4px; z-index: 2;" src="../../assets/icon/more.png"> -->
+
+      <ion-slides pager="false" [options]="slideOpts">
+        <ion-slide>
+          <div class="slide-div">
+              <img [src]="d?.file">
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+      <p class="heading">{{d.category}}</p>
+      <p class="content" [innerHTML]="d.description"></p>
+
+      <div (click)="showMore(i)" class="see-more" *ngIf="!showContents[i]">
+        <p id="p">See More</p>
+        <img id="arrow" src="../../assets/icon/fun-arrow.png">
+      </div>
+
+      <div class="see-more" *ngIf="showContents[i]">
+        <div style="display: flow-root; margin-top: -15px;">
+          <p class="heading" style="font-size: 11px;">Videos</p>
+          <div class="media-container">
+            <div *ngFor="let v of d.videos; let i=index;" id="video" (click)="imageVideoModal(v, 'video', false)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+              <!-- <img [src]="v.video" style="width: 65px; height: 36px; border-radius: 10px;"> -->
+              <!-- <video (click)="imageVideoModal(v)" id="video" width="100" height="59" controls controlsList="nodownload">
+                <source [src]="v" type="video/mp4">
+              </video> -->
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root; margin-top: -15px;"  *ngIf="d.youtube">
+          <p class="heading" style="font-size: 11px;">Youtube Videos</p>
+          <div class="media-container">
+            <div id="video" (click)="imageVideoModal(d.youtube, 'video', true)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root">
+          <p class="heading" style="font-size: 11px; margin-top: 2px; float: left;">More Images</p>
+          <div class="media-container">
+            <div *ngFor="let im of d.image; let i=index;">
+              <!-- <img [src]="im"> -->
+
+              <img (click)="imageVideoModal(im, 'image', false)" [src]="im">
+            </div>
+          </div>
+        </div>
+      
+        <div style="display: flow-root" (click)="showMore(i)">
+          <p id="p">Show Less
+            <img id="arrow" style="transform: rotate(-90deg); padding-top: 1px; right: -20px; top: 0" src="../../assets/icon/fun-arrow.png">
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="segmentSelected==='latest'">
+
+    <!-- Latest -->
+    <div class="card" *ngFor="let d of data; let i = index;">
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==0" name="star-outline" color="light"></ion-icon>
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==1" name="star"></ion-icon>
+
+      <!-- <img style="margin-top: 14px; position: absolute; right: 54px; width: 4px; z-index: 2;" src="../../assets/icon/more.png"> -->
+
+      <ion-slides pager="false" [options]="slideOpts">
+        <ion-slide>
+          <div class="slide-div">
+              <img [src]="d?.file">
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+      <p class="heading">{{d.category}}</p>
+      <p class="content" [innerHTML]="d.description"></p>
+
+      <div (click)="showMore(i)" class="see-more" *ngIf="!showContents[i] && (d.videos.length!==0 || d.image.length!==0)">
+        <p id="p">See More</p>
+        <img id="arrow" src="../../assets/icon/fun-arrow.png">
+      </div>
+
+      <div class="see-more" *ngIf="showContents[i]">
+
+        <div style="display: flow-root; margin-top: -15px;" *ngIf="d.videos.length>0">
+          <p class="heading" style="font-size: 11px;">Videos</p>
+          <div class="media-container">
+            <div *ngFor="let v of d.videos; let i=index;" id="video" (click)="imageVideoModal(v, 'video', false)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+              <!-- <img [src]="v.video" style="width: 65px; height: 36px; border-radius: 10px;"> -->
+              <!-- <video (click)="imageVideoModal(v)" id="video" width="100" height="59" controls controlsList="nodownload">
+                <source [src]="v" type="video/mp4">
+              </video> -->
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root; margin-top: -15px;"  *ngIf="d.youtube">
+          <p class="heading" style="font-size: 11px;">Youtube Videos</p>
+          <div class="media-container">
+            <div id="video" (click)="imageVideoModal(d.youtube, 'video', true)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root" *ngIf="d.image.length>0">
+          <p class="heading" style="font-size: 11px; margin-top: 2px; float: left;">More Images</p>
+          <div class="media-container">
+            <div *ngFor="let im of d.image; let i=index;">
+              <img (click)="imageVideoModal(im, 'image', false)" [src]="im">
+            </div>
+          </div>
+        </div>
+      
+        <div (click)="showMore(i)" style="display: flow-root">
+          <p id="p">Show Less
+            <img id="arrow" style="transform: rotate(-90deg); padding-top: 1px; right: -20px; top: 0" src="../../assets/icon/fun-arrow.png">
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>  
+  
+  <div *ngIf="segmentSelected==='categories'">
+
+    <!-- Categories -->
+
+    <div *ngIf="!isCategoriesExpand">
+      <!-- Categories List -->
+
+      <div (click)="categoriesExpand(c.fun_id)" class="categories" *ngFor="let c of data">
+        <p>{{c.category}}</p>
+      </div>
+    </div>
+
+    <div *ngIf="isCategoriesExpand">
+      <!-- Categories Inner View -->
+
+      <div class="card" *ngFor="let d of categoriesDetails; let i = index;">
+        <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==0" name="star-outline" color="light"></ion-icon>
+        <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==1" name="star"></ion-icon>
+  
+        <!-- <img style="margin-top: 14px; position: absolute; right: 54px; width: 4px; z-index: 2;" src="../../assets/icon/more.png"> -->
+  
+        <ion-slides pager="false" [options]="slideOpts">
+          <ion-slide>
+            <div class="slide-div">
+                <img [src]="d?.file">
+            </div>
+          </ion-slide>
+        </ion-slides>
+  
+        <p class="heading">{{d.category}}</p>
+        <p class="content" [innerHTML]="d.description"></p>
+  
+        <div (click)="showMore(i)" class="see-more" *ngIf="!showContents[i] && (d.videos.length!==0 || d.image.length!==0)">
+          <p id="p">See More</p>
+          <img id="arrow" src="../../assets/icon/fun-arrow.png">
+        </div>
+  
+        <div class="see-more" *ngIf="showContents[i]">
+          <div style="display: flow-root; margin-top: -15px;">
+            <p class="heading" style="font-size: 11px;">Videos</p>
+            <div class="media-container">
+              <div *ngFor="let v of d.videos; let i=index;" id="video" (click)="imageVideoModal(v, 'video', false)" style="position: relative;">
+                <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flow-root; margin-top: -15px;"  *ngIf="d.youtube">
+            <p class="heading" style="font-size: 11px;">Youtube Videos</p>
+            <div class="media-container">
+              <div id="video" (click)="imageVideoModal(d.youtube, 'video', true)" style="position: relative;">
+                <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+              </div>
+            </div>
+          </div>
+  
+          <div style="display: flow-root">
+            <p class="heading" style="font-size: 11px; margin-top: 2px; float: left;">More Images</p>
+            <div class="media-container">
+              <div *ngFor="let im of d.image; let i=index;">
+                <img (click)="imageVideoModal(im, 'image', false)" [src]="im">
+              </div>
+            </div>
+          </div>
+        
+          <div (click)="showMore(i)" style="display: flow-root">
+            <p id="p">Show Less
+              <img id="arrow" style="transform: rotate(-90deg); padding-top: 1px; right: -20px; top: 0" src="../../assets/icon/fun-arrow.png">
+            </p>
+          </div>
+  
+        </div>
+  
+      </div>
+
+    </div>
+
+  </div>
+
+  <div *ngIf="segmentSelected==='saved'">
+
+    <!-- Saved -->
+    <div class="card" *ngFor="let d of data; let i = index;">
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==0" name="star-outline" color="light"></ion-icon>
+      <ion-icon (click)="addFav(i, d.funid)" *ngIf="d.saved==1" name="star"></ion-icon>
+
+      <!-- <img style="margin-top: 14px; position: absolute; right: 54px; width: 4px; z-index: 2;" src="../../assets/icon/more.png"> -->
+
+      <ion-slides pager="false" [options]="slideOpts">
+        <ion-slide>
+          <div class="slide-div">
+              <img [src]="d?.file">
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+      <p class="heading">{{d.category}}</p>
+      <p class="content" [innerHTML]="d.description"></p>
+
+      <div (click)="showMore(i)" class="see-more" *ngIf="!showContents[i] && (d.videos.length!==0 || d.image.length!==0)">
+        <p id="p">See More</p>
+        <img id="arrow" src="../../assets/icon/fun-arrow.png">
+      </div>
+
+      <div class="see-more" *ngIf="showContents[i]">
+        <div style="display: flow-root; margin-top: -15px;">
+          <p class="heading" style="font-size: 11px;">Videos</p>
+          <div class="media-container">
+            <div *ngFor="let v of d.videos; let i=index;" id="video" (click)="imageVideoModal(v, 'video', false)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root; margin-top: -15px;"  *ngIf="d.youtube">
+          <p class="heading" style="font-size: 11px;">Youtube Videos</p>
+          <div class="media-container">
+            <div id="video" (click)="imageVideoModal(d.youtube, 'video', true)" style="position: relative;">
+              <ion-icon name="play-circle-outline" style="border: 0; backdrop-filter: none; font-size: 30px; left: 21%; top: -2%;"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flow-root">
+          <p class="heading" style="font-size: 11px; margin-top: 2px; float: left;">More Images</p>
+          <div class="media-container">
+            <div *ngFor="let im of d.image; let i=index;">
+               <img (click)="imageVideoModal(im, 'image', false)" [src]="im">
+            </div>
+          </div>
+        </div>
+      
+        <div (click)="showMore(i)" style="display: flow-root">
+          <p id="p">Show Less
+            <img id="arrow" style="transform: rotate(-90deg); padding-top: 1px; right: -20px; top: 0" src="../../assets/icon/fun-arrow.png">
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>  
+
+  <!-- Worksheet / Games -->
+  <!-- <app-explore-container aspectId="9"></app-explore-container> -->
+
+</ion-content>

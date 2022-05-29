@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <!-- <ion-toolbar style="position: fixed;"> -->
+    <!-- <app-explore-container headerColor="white"></app-explore-container> -->
+  <!-- </ion-toolbar> -->
+  <ion-icon class="header-more" (click)="common.presentAlert('Click on the correct answer in the option bowl and save the fish. The fish falls dead if you click the wrong answer.')" name="information-circle" style="position: absolute; right: 10px; top: 8px;font-size: 40px; color: #008da0;"></ion-icon>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+  <div style="padding: 25px; margin-top: 50px; position: relative;">
+    <img src="../../assets/icon/game1-board.png">
+    <div style="position: absolute; transform: translate(-50%, -50%); top: 50%; left: 50%; color: white; width: calc(100% - 62px); text-align: center; text-shadow: 2px 2px darkblue;">
+      {{data[i]?.question}}
+    </div>
+
+    <div *ngIf="i<=data.length" style="position: absolute; bottom: 45px; right: 49px; color: white; font-size: 11px; text-shadow: 1px 1px #009db0;">
+      {{ i < data.length?i+1 : data.length }}/{{ data.length }}
+    </div>
+  </div>
+
+  <div style="position: relative;">
+    <img style="position: absolute;" src="../../assets/icon/game1-table.png">
+    <div style="left: 25%; transform: translateX(-50%); position: absolute; width: 180px; height: 152px; top: 5px;">
+      <img *ngIf="wrongs>0" class="table-fish" style="left: 14px; top: 50px; transform: rotate(32deg);" src="../../assets/icon/game1-fish6.png">
+      <img *ngIf="wrongs>1" class="table-fish" style="left: 27px; top: 62px; transform: rotate(10deg);" src="../../assets/icon/game1-fish7.png">
+      <img *ngIf="wrongs>2" class="table-fish" style="left: 34px; top: 64px; transform: rotate(20deg);" src="../../assets/icon/game1-fish8.png">
+      <img *ngIf="wrongs>3" class="table-fish" style="left: 38px; top: 55px; transform: scaleX(-1);" src="../../assets/icon/game1-fish9.png">
+      <img *ngIf="wrongs>4" class="table-fish" style="left: 8px; top: 100px; transform: scaleX(-1);" src="../../assets/icon/game1-fish10.png">
+      <img *ngIf="wrongs>5" class="table-fish" style="left: -139px; top: 100px; transform: rotate(-20deg);" src="../../assets/icon/game1-fish6.png">
+      <img *ngIf="wrongs>6" class="table-fish" style="left: 5px; top: -9px;" src="../../assets/icon/game1-fish7.png">
+      <img *ngIf="wrongs>7" class="table-fish" style="left: 54px; top: 62px; transform: scaleX(-1);" src="../../assets/icon/game1-fish8.png">
+      <img *ngIf="wrongs>8" class="table-fish" style="left: -40px; top: 41px;" src="../../assets/icon/game1-fish9.png">
+      <img *ngIf="wrongs>9" class="table-fish" style="left: -38px; top: 63px; transform: scaleX(-1);" src="../../assets/icon/game1-fish10.png">
+    </div>
+
+    <img style="position: absolute; top: -25px; width: 95px; left: 25%; transform: translateX(-50%);" src="../../assets/icon/game1-tank.png">
+    <div style="left: 25%; transform: translateX(-50%); position: absolute; width: 90px; height: 57px; top: 5px;">
+      <img *ngIf="mark>0" class="tank2-fish" style="left: 12px; top: 25px;" src="../../assets/icon/game1-fish1.png">
+      <img *ngIf="mark>1" class="tank2-fish" style="left: 10px; top: 3px; transform: rotate(10deg);" src="../../assets/icon/game1-fish2.png">
+      <img *ngIf="mark>2" class="tank2-fish" style="left: 0; top: 30px; transform: scaleX(-1);" src="../../assets/icon/game1-fish3.png">
+      <img *ngIf="mark>3" class="tank2-fish" style="left: 18px; top: 17px; transform: scaleX(-1);" src="../../assets/icon/game1-fish4.png">
+      <img *ngIf="mark>4" class="tank2-fish" style="left: -16px; top: 17px; transform: scaleX(-1);" src="../../assets/icon/game1-fish5.png">
+      <img *ngIf="mark>5" class="tank2-fish" style="left: 52px; top: 11px; transform: rotate(-20deg);" src="../../assets/icon/game1-fish1.png">
+      <img *ngIf="mark>6" class="tank2-fish" style="left: -12px; top: -9px;" src="../../assets/icon/game1-fish2.png">
+      <img *ngIf="mark>7" class="tank2-fish" style="left: -6px; top: -3px; transform: scaleX(-1);" src="../../assets/icon/game1-fish3.png">
+      <img *ngIf="mark>8" class="tank2-fish" style="left: 0; top: -14px;" src="../../assets/icon/game1-fish4.png">
+      <img *ngIf="mark>9" class="tank2-fish" style="left: 7px; top: -19px; transform: scaleX(-1);" src="../../assets/icon/game1-fish5.png">
+    </div>
+
+    <img style="position: absolute; top: -25px; width: 150px; left: 65%; transform: translateX(-50%);" src="../../assets/icon/game1-tank.png">
+    <div [style]="data[0].block === 1 ? 'opacity: .5' : ''" style="left: 65%; transform: translateX(-50%); position: absolute;">
+      <p style="position: relative; height: 35px; width: 135px; top: 16px; text-align:center; margin-top: 22px; font-size: 12px;"> {{data[i]?.option1}} </p>
+      <div (click)="selectAnswer(data[i].option1, data[i].correctanswer)" style="border: 2px solid white; width: 161px; position: fixed; top: 32px; border-radius: 244%/100px 100px 0 0; height: 34px; border-color: white transparent transparent transparent; transform: rotate(180deg); left: -13px"></div>
+      <div style="position: relative; height: 32px; width: 135px; text-align: center; font-size: 12px; padding-top: 5px;">
+        <img *ngIf="i===0 || i===5" class="tank-fish" src="../../assets/icon/game1-fish1.png">
+        <img *ngIf="i===1 || i===6" class="tank-fish" src="../../assets/icon/game1-fish2.png">
+        <img *ngIf="i===2 || i===7" class="tank-fish" style="transform: rotate(10deg);" src="../../assets/icon/game1-fish3.png">
+        <img *ngIf="i===3 || i===8" class="tank-fish" style="transform: rotate(10deg);" src="../../assets/icon/game1-fish4.png">
+        <img *ngIf="i===4 || i===9" class="tank-fish" src="../../assets/icon/game1-fish5.png">
+        <p (click)="selectAnswer(data[i].option2, data[i].correctanswer)" style="position: relative; top: -15px; width: 92px; left: 50px; text-align: left; padding-top: 4px;"> {{data[i]?.option2}} </p>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: calc(100%); text-align: center; position: absolute; bottom: 10px;">
+    <img style="width: 180px; position: absolute; transform: translateX(-50%); left: 50%; top: -155px;" [src]="common.gifPath">
+    <!-- <ion-button [disabled]="index <= 0" (click)="nextPrev(-1)" class="footer-btn">Prev</ion-button>
+    <ion-button [disabled]="((data.length)-1 == index) && data.length > 1" (click)="nextPrev(1)" class="footer-btn">Next</ion-button> -->
+    <ion-button [disabled]="!(i > 0 || data[0].block === 1)" (click)="resetAlert()" color="danger" style="width: 322px;">Reset</ion-button>
+  </div>
+ 
+
+</ion-content>

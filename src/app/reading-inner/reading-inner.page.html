@@ -1,0 +1,60 @@
+<ion-header style="z-index: 0;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+        <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+<ion-toolbar>
+  <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img style="width: 100%;" [style]="common.platform.height()<735?'height: 250px;':'height: 333px;'" src="../../assets/icon/levels-header.png">
+  
+    <p [style]="common.platform.height()>735?'top: 24%;':''" style="top: 15%; position: absolute; left: 31px; font-size: 25px; color: whitesmoke">Reading</p>
+    
+    <div style="margin: 0 auto; width: 360px;">
+    <div class="card" (click)="openLevel(data.l, 1, '')">
+
+      <img class="image1" [src]="data.image1">
+      <img class="image2" [src]="data.image2">
+      <img class=number [src]="data.number">
+      <p *ngIf="data.l==1" style="top: 102px;" class="p1">Level {{data.l}}</p>
+      <p *ngIf="data.l!=1" [style]="data.l==2?'top: 94px;':''" class="p1">Level {{data.l}}</p>
+
+      <div *ngIf="data.l!==4 && data.l!==5" style="position: absolute; width: 100%;">
+        <div class="content" [style]="data.l==1?'top: 60px;':''" *ngFor="let c of data.content; let i = index">
+          <img *ngIf="i<3" class="bullet" [src]="data.bullet">
+          <p *ngIf="i<3" class="p2">{{c.sublevel}}</p>
+        </div>
+      </div>
+
+      <div *ngIf="data.l===4">
+        <div class="content" [style]="data.l==1?'top: 60px;':''">
+          <img class="bullet" [src]="data.bullet">
+          <p class="p2"> Words Sets </p>
+        </div>
+      </div>
+
+      <div *ngIf="data.l===5">
+        <div class="content" [style]="data.l==1?'top: 60px;':''">
+          <img class="bullet" [src]="data.bullet">
+          <p class="p2"> Printable Flashcards </p>
+        </div>
+      </div>
+
+      <div style="width: 100px; margin: 0 auto;">
+        <p class="p3">Learn More
+          <img class="arrow" [src]="data.arrow">
+        </p>
+        
+      </div>
+
+      <p class="p4">Click on the {{data.footerWord}} to play its audio.</p>
+    </div>
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  
+
+</ion-content>

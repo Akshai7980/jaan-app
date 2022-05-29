@@ -1,0 +1,42 @@
+.header{
+    margin-top: 90px;
+    margin-bottom: 120px;
+
+    #mark{
+        background: #069ee7;
+        color: #ffffff;
+        position: absolute;
+        right: 22px;
+        font-size: 11px;
+        height: 18px;
+        width: 50px;
+        border-radius: 15px;
+        text-align: center;
+        padding-top: 2px;
+    }
+}
+
+.header-title{
+    color: #31378d;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    margin-bottom: 18px;
+}
+
+.options{
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    border: .5px solid lightgray;
+}
+
+.options + .options {
+    margin-left: 8px;
+}
+
+.selected{
+    background: #31378d !important;
+    color: #ffffff;
+}

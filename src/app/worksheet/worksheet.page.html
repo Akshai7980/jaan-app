@@ -1,0 +1,47 @@
+<ion-header style="z-index: 0; margin-bottom: -12px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+
+    <app-explore-container headerColor="white"></app-explore-container>
+
+    <img style="width: 100%;" src="../../assets/icon/worksheet-header.png">
+
+    <p style="top: 52%; position: absolute; left: 25px; font-size: 25px; color: whitesmoke">Worksheets</p>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+
+  <div id="outer-div" *ngIf="worksheet">
+
+    <div [style]="worksheet.worksheet1==1?'opacity: 1;':'opacity: .5;'" (click)="worksheet.worksheet1==1?common.openPage('worksheet1', 1, ''):presentToast()" class="box ion-activatable ripple-parent">
+      <ion-avatar style="--color: #6eae40"> <span> 1 </span> </ion-avatar>
+      <p> Add Suffix </p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+
+    <div [style]="worksheet.worksheet2==1?'opacity: 1;':'opacity: .5;'" (click)="worksheet.worksheet2==1?common.openPage('worksheet2', 1, ''):presentToast()" class="box ion-activatable ripple-parent">
+      <ion-avatar style="--color: #ef7f5d"> <span> 2 </span> </ion-avatar>
+      <p> Matching </p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+
+    <div [style]="worksheet.worksheet3==1?'opacity: 1;':'opacity: .5;'" (click)="worksheet.worksheet3==1?common.openPage('worksheet4', 1, ''):presentToast()" class="box ion-activatable ripple-parent">
+      <ion-avatar style="--color: #533dad"> <span> 3 </span> </ion-avatar>
+      <p> Fill in the blanks </p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+
+    <div [style]="worksheet.worksheet4==1?'opacity: 1;':'opacity: .5;'" (click)="worksheet.worksheet4==1?common.openPage('worksheet3', 1, ''):presentToast()" class="box ion-activatable ripple-parent">
+      <ion-avatar style="--color: #3daeae"> <span> 4 </span> </ion-avatar>
+      <p> Choose words for sentence </p>
+      <ion-ripple-effect></ion-ripple-effect>
+    </div>
+
+  </div>
+
+</ion-content>

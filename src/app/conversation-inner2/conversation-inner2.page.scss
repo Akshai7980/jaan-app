@@ -1,0 +1,44 @@
+
+  .audio-button{
+    --background: #01a0e4;
+    height: 42px;
+    text-transform: none;
+  }
+
+  .content-div{
+      margin-bottom: -20px;
+      height: 90px;
+  }
+
+  .icon-star{
+    position: absolute;
+    top: 26px;
+    left: 112px;
+  }
+
+  .malayalam{
+    font-weight: bold;
+    font-size: 13px;
+    position: relative;
+    top: 0px;
+    left: 30px;
+    width: 235px;
+    float: left;
+  }
+
+  .english{
+    font-size: 12px;
+    position: absolute;
+    left: calc(100% - 205px);
+    width: 235px;
+    float: right;
+    text-align: center;
+  }
+
+ .border-line{
+    border-bottom: 0.5px solid lightgray;
+    width: calc(100% - 60px);
+    position: relative;
+    top: 58px;
+    left: 28px;
+}

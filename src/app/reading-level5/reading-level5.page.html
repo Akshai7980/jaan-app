@@ -1,0 +1,101 @@
+<ion-header style="z-index: 0; margin-bottom: -20px;">
+    <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: black;" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+  
+    <ion-toolbar>
+        
+      <app-explore-container headerColor="black"></app-explore-container>
+
+      <div style="height: 75px"></div>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content *ngIf="!selectedCards.round4">
+
+  <div class="outer-div">
+
+  <div class="flash-cards" *ngIf="selectedCards.round1">
+    <!-- Round 1 -->
+    <img (click)="selectCards(1)" style="left: 0;" src='../../assets/icon/flash-1.png'>
+    <img (click)="selectCards(2)" style="right: 0;" src='../../assets/icon/flash-2.png'>
+    <img (click)="selectCards(3)" style="top: 50%; left: 50%; margin-left: -40px; margin-top: -62px" src='../../assets/icon/flash-3.png'>
+    <img (click)="selectCards(4)" style="bottom: 0;" src='../../assets/icon/flash-4.png'>
+    <img (click)="selectCards(5)" style="bottom: 0; right: 0;" src='../../assets/icon/flash-5.png'>
+  </div>
+
+  <div *ngIf="selectedCards.round2" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <!-- Round 2 -->
+    <img style="max-width: 215px;"  [src]="'../../assets/icon/flash-round2-' + selectedCards.value + '.png'">
+    <div (click)="shuffle()" class="shuffle-button">Shuffle</div>
+  </div>
+
+  <div class="flash-cards" *ngIf="selectedCards.round3">
+    <!-- Round 3 -->
+    <div (click)="openCards(1)" class="round3-cards" [style]="'background-image: url(' + data[0].imagefiles[0] + ')'" style="left: -27px; top: -25px;">
+     <div> <p> {{data[0].title}} </p> </div>
+    </div>
+
+    <div (click)="openCards(2)" class="round3-cards" [style]="'background-image: url(' + data[1].imagefiles[0] + ')'" style="right: -25px; top: -25px;">
+      <div> <p> {{data[1].title}} </p> </div>
+    </div>
+
+    <div (click)="openCards(3)" class="round3-cards" [style]="'background-image: url(' + data[2].imagefiles[0] + ')'" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+      <div> <p> {{data[2].title}} </p> </div>
+    </div>
+
+    <div (click)="openCards(4)" class="round3-cards" [style]="'background-image: url(' + data[3].imagefiles[0] + ')'" style="left: -27px; bottom: -27px;">
+      <div> <p> {{data[3].title}} </p> </div>
+    </div>
+
+    <div (click)="openCards(5)" class="round3-cards" [style]="'background-image: url(' + data[4].imagefiles[0] + ')'" style="right: -25px; bottom: -27px;">
+      <div> <p> {{data[4].title}} </p> </div>
+    </div>
+    
+    <!-- <img (click)="openCards(2)" style="right: 0;" src='../../assets/icon/flash-3.png'>
+    <img (click)="openCards(3)" style="top: 50%; left: 50%; margin-left: -40px; margin-top: -62px" src='../../assets/icon/flash-3.png'>
+    <img (click)="openCards(4)" style="bottom: 0;" src='../../assets/icon/flash-4.png'>
+    <img (click)="openCards(5)" style="bottom: 0; right: 0;" src='../../assets/icon/flash-5.png'> -->
+  </div>
+  
+  </div>  
+
+</ion-content>
+
+<ion-content *ngIf="selectedCards.round4" style="--background: url('../../assets/icon/level5-bg2.png') 0 0/100% 100% no-repeat;">
+  
+  <!-- Round 4 -->
+  <div style="color: lightgray; font-size: 11px; position: absolute; transform: translate(-50%, -50%); left: 50%; top: 6%;"> Click the title to play the audio 
+    <img style="left: -86px; width: 22px; position: absolute; top: -8px;" src="../../assets/icon/logo.png">
+  </div>
+
+  <div class="worksheet-button" style="top: 10px;">
+    <!-- Print Button -->
+  
+    <img *ngIf="!printOpen" (click)="openPrint()" id="open-button" src="../../assets/icon/worksheet-arrow1.png">
+  
+    <div *ngIf="printOpen" style="width: 78px;">
+      
+      <img (click)="openPrint()" id="close-button" src="../../assets/icon/worksheet-arrow2.png">
+      <span (click)="print()" style="font-size: 9px; color: white; position: relative; left: 15px; top: -11px;">
+        To Print
+        <ion-icon size="large" style="position: relative; left: 2px; top: 13px; width: 26px" name="print-outline" color="light"></ion-icon>
+      </span>
+    
+    </div>
+  
+  </div>
+
+  <div class="round-4" [style]="'background-image: url(' + data.imagefiles[0] + ')'">
+    <div id="content-box">
+      <div id="heading" (click)="common.playAudio(data.pronouncefiles[0])"> {{data.title}} </div>
+      <div id="border-line"></div>
+      <!-- <div id="content"> {{data.content}} </div> -->
+      <img [src]="data.content">
+    </div>
+  </div>
+
+  <!-- Worksheet / Games -->
+  <!-- <app-explore-container aspectId="5" [aspectSubId]="data[0].sublevelid" [worksheet]="data[0].worksheet" [games]="data[0].games"></app-explore-container> -->
+
+</ion-content>

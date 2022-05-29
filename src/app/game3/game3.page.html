@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: #7e6326;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <!-- <ion-toolbar style="position: fixed;"> -->
+    <!-- <app-explore-container headerColor="white"></app-explore-container> -->
+  <!-- </ion-toolbar> -->
+
+  <ion-icon class="header-more" (click)="common.presentAlert(' Click the START button and click the picture and the suitable box to which it belongs. You have 30 seconds to finish the game. Click SUBMIT button when you are done.')" name="information-circle" style="position: absolute; right: 10px; top: 8px;font-size: 40px; color: lightcyan;"></ion-icon>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+  <img class="game-title center" src="../../assets/icon/game3-title.png">
+  
+  <div class="timer center"> {{timer.hr<10?'0'+timer.hr:timer.hr}} : {{timer.min<10?'0'+timer.min:timer.min}} : {{timer.sec<10?'0'+timer.sec:timer.sec}} </div>
+
+  <div class="q-name-div center">
+    <div class="q-name" *ngFor="let n of data[i].wordarray"> {{n.word}} </div>
+  </div>
+
+  <div class="q-box-div center">
+    <div (click)="displayImage(index)" class="q-box" [id]="'box'+index" *ngFor="let q of q; let index = index">
+    <img *ngIf="q" [src]="q" style="height: 63.5px; border-radius: 5px; width: inherit;">
+    </div>
+  </div>
+
+  <div class="box-outer center" [style]="data[i].block===1?'opacity: .5':''">
+    <div
+      *ngFor="let o of data[i].options; let index = index"
+      id="box" [style]="data[i].block===1?'opacity: .5':''">  <!-- (click)="showImage(index)" -->
+      <img *ngIf="o" [id]="'image'+index" (click)="selectImage(index, o); $event.stopPropagation()" [src]="o" onerror="this.style.display='none'"> <!--*ngIf="o && optionSelected[index]" -->
+      <!-- <div *ngIf="!o" style="background: white; height: inherit;"> </div> -->
+      <!-- <div *ngIf="!o && optionSelected[index]" style="background: white; height: inherit;"> </div> -->
+    </div>
+  </div>
+
+
+  <div class="center" style="text-align: center;">
+    <img style="width: 180px; position: absolute; transform: translate(-50%, -50%); left: 50%; z-index: 1; top: -82px;" [src]="common.gifPath">
+    <ion-button [disabled]="data[i].block===1" (click)="startTimer()" class="start-button" shape="round" style="width: 170px;"> START </ion-button>
+    <ion-button [disabled]="data[i].block===1" (click)="stopGame()" class="start-button" style="width: 170px;" shape="round"> SUBMIT </ion-button>
+  </div>
+  <!-- <ion-button (click)="startTimer()" class="start-button center" shape="round"> START </ion-button>
+  <ion-button (click)="startTimer()" class="start-button center" shape="round"> START </ion-button> -->
+  <ion-button [disabled]="data[i].block===0" (click)="resetAlert()" color="danger" class="start-button center" style="margin-top: 0px;" shape="round"> RESET </ion-button>
+
+</ion-content>

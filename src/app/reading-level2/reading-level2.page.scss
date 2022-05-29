@@ -1,0 +1,82 @@
+.card{
+    margin-bottom: 30px;
+    position: relative;
+    float: left;
+    height: 38px;
+}
+
+.sample{
+    position: relative;
+}
+
+.image1{
+    position: relative;
+}
+
+.image2{
+    width: 75px;
+    position: relative;
+    top: -90px;
+    left: 10px;
+    float: left;
+}
+
+.letter{
+    position: relative;
+    left: 0px;
+    z-index: 1;
+    color: white;
+    font-size: 24px;
+    top: -39px;
+    text-align: center;
+}
+
+.single-letter{
+    position: relative;
+    top: -66px;
+    right: -102px;
+    float: left;
+    font-size: 20px;
+}
+
+.arrow{
+    position: relative;
+    top: -58px;
+    width: 40px;
+    right: -60px;
+    float: left;
+}
+
+.p{
+    color: darkgray;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -1px;
+}
+
+.button-div{
+    --background: linear-gradient(to right, #fbcc11, #fea10a);
+    height: 28px;
+    width: 80px;
+    position: fixed;
+    bottom: 15px;
+    border-radius: 20px;
+    right: 30px;
+    border: 2px solid black;
+}
+
+.button-div p{
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: -8.5px;
+    left: 30px;
+    color: white
+}
+
+.button-div img{
+    width: 15px;
+    position: absolute;
+    top: 7px;
+    right: 28px;
+}

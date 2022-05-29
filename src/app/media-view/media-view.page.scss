@@ -1,0 +1,13 @@
+.header{
+
+    #close{
+        position: absolute;
+        right: 10px;
+        width: 35px;
+        top: 5px;
+        backdrop-filter: brightness(50);
+        border-radius: 50%;
+        z-index: 1;
+        background: white;
+    }
+}

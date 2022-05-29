@@ -1,0 +1,29 @@
+<!-- <div id="container">
+  <strong>{{ name }}</strong>
+  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+</div> -->
+
+<div class="worksheet-button" *ngIf="aspectId">
+  <!-- Worksheet / Games -->
+
+  <img *ngIf="!worksheetOpen" (click)="openWorksheet()" id="open-button" src="../../assets/icon/worksheet-arrow1.png">
+
+  <div *ngIf="worksheetOpen">
+    
+    <img (click)="openWorksheet()" id="close-button" src="../../assets/icon/worksheet-arrow2.png">
+    <ion-button [disabled]="worksheet===0" (click)="openWorksheetGame('worksheet')" id="button1" shape="round" >Go to Worksheet</ion-button>
+    <ion-button [disabled]="games===0" (click)="openWorksheetGame('games')" id="button2" shape="round" >Go to Games</ion-button>
+  
+  </div>
+
+</div>
+
+<div *ngIf="headerColor && (page==='home' || page==='listeningInner' ||  page==='speakingInner' ||  page==='vocabularyInner' ||  page==='conversation2')">
+  <!-- Common Header Options -->
+  <!-- <img *ngIf="page==='home'" (click)="openNotification()" style="width: 15px; position: absolute; top: 17px; right: 43px;" [src]="headerColor==='black'?'../../assets/icon/notification-black.png':'../../assets/icon/notification.png'">
+  <ion-badge *ngIf="common.notificationCount>0" style="position: absolute; top: 15px; right: 38px; font-size: 7px; border-radius: 20px; background: #f3355b;"> {{common.notificationCount}} </ion-badge> -->
+  <!-- <img (click)="openContact()" style="width: 16px; position: absolute; top: 18px; right: 45px;" [src]="headerColor==='black'?'../../assets/icon/comment-black.png':'../../assets/icon/comment.png'"> -->
+  <!-- <ion-icon (click)="openContact()" size="large" style="width: 22px; position: absolute; right: 43px; top: 11px;" name="mail" [color]="headerColor==='black'?'dark':'light'"></ion-icon> -->
+  <img (click)="presentPopover()" class="header-more" style="top: 18px; position: fixed; right: 22px; width: 5px;" [src]="headerColor==='black'?'../../assets/icon/more-black.png':'../../assets/icon/more.png'">
+
+</div>

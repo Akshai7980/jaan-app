@@ -1,0 +1,31 @@
+<ion-header style="display: contents;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <!-- <ion-toolbar> -->
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img *ngIf="data.file_type === 'Image'" style="width: 100%; height: 365px;" onerror="this.style.background='grey'" [src]="data.file">
+
+    <video *ngIf="data.file_type === 'Video'" style="margin-bottom: 25px;" width="100%" height="322px" controls  controlsList="nodownload">
+      <source [src]="data.file" type="video/mp4">
+    </video>
+  
+  <!-- </ion-toolbar> -->
+</ion-header>
+
+<div class="content">
+
+  <div id="name"> {{data.name}} </div>
+  <div id="border-line"></div>
+  <rating *ngIf="page==='testimonial'" id="rating" class="testimonials-inner-rating" [(ngModel)]="data.rating" readonly="true"></rating>
+  <div id="date" *ngIf="page==='jCorner'"> {{data.created_at | date: 'd-MMM-y'}} </div>
+  <div id="content-area"> {{data.content}} </div>
+
+</div>
+
+<!-- <ion-content>
+
+</ion-content> -->

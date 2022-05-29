@@ -1,0 +1,51 @@
+.inner-div{
+    height: 170px;
+    background-image: url('../../assets/icon/speaking-grid-bg.png');
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px grey;
+    margin-top: 1px;
+    position: relative;
+    background-size: cover;
+}
+
+.inner-div+.inner-div{
+    margin-top: 25px;
+}
+
+.img1{
+    width: 195px;
+    border-top-left-radius: 10px;
+    position: absolute;
+    left: -2px;
+    top: -1px;
+}
+
+.img2{
+    width: 95px;
+    position: absolute;
+    left: 24px;
+    top: 45px;
+}
+
+.img3{
+    position: absolute;
+    right: 13px;
+    width: 30px;
+    top: 123px;
+}
+
+.p1{
+    position: absolute;
+    font-size: 17px;
+    top: 75px;
+    right: 15px;
+    font-weight: bold;
+}
+
+.p2{
+    position: absolute;
+    top: 114px;
+    right: 50px;
+    color: #f1bc15;
+    font-size: 15px;
+}

@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: red;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <!-- <ion-toolbar style="position: fixed;"> -->
+    <!-- <app-explore-container headerColor="white"></app-explore-container> -->
+  <!-- </ion-toolbar> -->
+
+  <ion-icon class="header-more" (click)="common.presentAlert('Click and drag letters/words to rearrange the order and then click the Submit button. See the correct arrangement in the below pane when you click Show Answer.')" name="information-circle" style="position: absolute; right: 10px; top: 8px;font-size: 40px; color: #e51114;"></ion-icon>
+</ion-header>
+
+<ion-content *ngIf="data">
+
+  <div style="margin: 0 auto; width: 360px;">
+
+    <!-- <ion-slides #slides pager="true" (ionSlideWillChange)="setSlide()">
+    
+      <ion-slide *ngFor="let dat of data; let slideIndex = index"> -->
+        
+      <div class="board">
+        <img id="img" src="../../assets/icon/game2-board.png">
+        
+        <!-- <div
+        class="letters"
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)"
+        > -->
+          <!-- <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false"> -->
+            <!-- <ion-reorder *ngFor="let d of data[0]?.shufflearray" id="div"> -->
+            <!-- <div id="div" *ngFor="let d of data[1].shufflearray"> -->
+              <!-- <div style="text-align: center;" cdkDrag cdkDragBoundary=".letters"> {{d}} </div> -->
+            <!-- </div> -->
+          <!-- </ion-reorder> -->
+          <!-- </ion-reorder-group> -->
+        <!-- </div> -->
+
+        <div *ngIf="data[i].type=='letters'">
+          <!-- Type -> Words -->
+          <div
+            class="letters"
+            [style]="data[i].block===1?'opacity: 0.5':''"
+            cdkDropListGroup
+            id="letters-div"
+            >
+              <div id="div" cdkDropList 
+              [cdkDropListData]="index"
+              *ngFor="let s of data[i].shufflearray; let index = index"
+              >
+                <div style="text-align: center;" [cdkDragData]="index"  (cdkDragEntered)="drop($event, '')" cdkDrag cdkDragBoundary=".letters"> {{s}} </div>
+              </div>
+          </div>
+        </div>
+
+        <div *ngIf="data[i].type=='Sentence'">
+          <!-- Type -> Sentence -->
+          <div
+            class="letters"
+            [style]="data[i].block===1?'opacity: 0.5':''"
+            [id]="'letters-div'+index"
+            *ngFor="let s of data[i].shufflearray; let index = index"
+            cdkDropList
+            cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="drop($event, index)"
+            >
+              <div id="div" *ngFor="let d of s">
+                <div style="text-align: center;" cdkDrag cdkDragBoundary=".letters"> {{d}} </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- <div style="margin-top: 70px; width: inherit; position: absolute; top: 245px;"> -->
+          <!-- Next Prev Button -->
+          <img *ngIf="i > 0" (click)="nextPrevGame(-1)" class="next" style="transform: rotate(180deg);" src="../../assets/icon/level-ar3.png">
+          <img *ngIf="! ((data.length)-1 == i) && data.length > 1" (click)="nextPrevGame(1)" class="next" style="left: 305px;" src="../../assets/icon/level-ar3.png">
+        <!-- </div> -->
+
+      </div>
+
+      <!-- </ion-slide>
+
+    </ion-slides> -->
+
+
+    <div style="padding: 0px 20px 0 20px; margin-top:12px;">
+      <!-- Answer Box -->
+      <div class="answer-box">
+        <div *ngIf="isShowAnswers" style="position: absolute; top: 248px;">
+          <!-- Right Answers on button click -->
+          <div *ngIf="data[i].type=='Sentence'">
+            <!-- Right Answers for type - Sentence -->
+            <div class="letters" [style]="data[i].block===1?'opacity: 0.5':''" style="height: 30px; color: green;" *ngFor="let s of data[i].correctarray; let index = index" [style]="index==0?'margin-top: -245px;':''">
+              <div id="div" *ngFor="let d of s">
+                <div style="text-align: center;"> {{d}} </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="data[i].type=='letters'">
+            <!-- Right Answers for type - Words -->
+            <div class="letters" [style]="data[i].block===1?'opacity: 0.5':''" style="height: 30px; color: green; top: 45px;">
+              <div id="div" *ngFor="let s of data[i].correctarray; let index = index">
+                <div style="text-align: center;"> {{s}} </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+
+  <!-- </ion-slide> 
+
+    </ion-slides> -->
+
+    <div class="footer">
+      <!-- Footer Buttons -->
+      <img style="width: 180px; position: absolute; transform: translate(-50%, -50%); left: 50%; z-index: 1; top: -82px;" [src]="common.gifPath">
+      <ion-button (click)="resetAlert()" style="--bg: #fb8904; --shadow: #db7e11; margin-right: 10px;"> Reset / Play </ion-button>
+      <ion-button [disabled]="data[i].block===1" (click)="submitAnswers()" style="--bg: #3edee9; --shadow: #1bb3b7; margin-right: 10px;"> Submit </ion-button>
+      <ion-button *ngIf="!isShowAnswers" (click)="showAnswers()" style="--bg: #69c31c; --shadow: #49a300"> Show Answers </ion-button>
+      <ion-button *ngIf="isShowAnswers" (click)="showAnswers()" style="--bg: #69c31c; --shadow: #49a300"> Hide Answers </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

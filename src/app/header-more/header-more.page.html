@@ -1,0 +1,19 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>header-more</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <!-- <ion-button fill="clear"> Favourites </ion-button> -->
+
+  <div
+  (click)="selectOption(d)"
+  class="ion-activatable div"
+  *ngFor="let d of data; let i = index">
+    {{d}}
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+
+</ion-content>

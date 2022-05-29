@@ -1,0 +1,154 @@
+.main-div {
+    padding: 15px 0px 20px 20px;
+    margin: 0 auto;
+    width: 350px;
+}
+
+// easy card session
+.easy-card {
+    position: relative;
+}
+.bar-image {
+    position: absolute;
+    height: 120px;
+    width: 5px;
+}
+.green-list-image {
+    position: absolute;
+    width: 50px;
+    top: 50px;
+    left: -10px;
+}
+.green-bg-image {
+    width: 300px;
+}
+.com-one-image {
+    left: 25px;
+    width: 65px;
+    position: absolute;
+    top: 28px;
+}
+.easy-text {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+}
+.learn-div {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    align-items: center;
+}
+.learn-div p {
+    font-size: 10px;
+}
+.learn-div img {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+// medium card session
+.medium-card {
+    position: relative;
+    top: 120px;
+}
+.med-bar-image {
+    position: absolute;
+    height: 120px;
+    width: 5px;
+}
+.med-green-list-image {
+    position: absolute;
+    width: 50px;
+    top: 50px;
+    left: -10px;
+}
+.med-green-bg-image {
+    width: 300px;
+}
+.med-com-one-image {
+    left: 25px;
+    width: 65px;
+    position: absolute;
+    top: 28px;
+}
+.med-easy-text {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+}
+.med-learn-div {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    align-items: center;
+}
+.med-learn-div p {
+    font-size: 10px;
+}
+.med-learn-div img {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+// medium card session
+.difficult-card {
+    position: relative;
+    top: 240px;
+}
+.dif-bar-image {
+    position: absolute;
+    height: 120px;
+    width: 5px;
+}
+.dif-green-list-image {
+    position: absolute;
+    width: 50px;
+    top: 50px;
+    left: -10px;
+}
+.dif-green-bg-image {
+    width: 300px;
+}
+.dif-com-one-image {
+    left: 25px;
+    width: 65px;
+    position: absolute;
+    top: 28px;
+}
+.dif-easy-text {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+}
+.dif-learn-div {
+    display: flex;
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    align-items: center;
+}
+.dif-learn-div p {
+    font-size: 10px;
+}
+.dif-learn-div img {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+}

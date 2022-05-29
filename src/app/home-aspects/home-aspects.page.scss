@@ -1,0 +1,84 @@
+.header-md::after{
+    width: 0;
+}
+
+.card{
+    height: 100px;
+    box-shadow: 0px 0px 10px 2px lightgray;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    position: relative;
+
+    #img{
+        width: 70px;
+        position: absolute;
+        left: 22px;
+        top: 17px;
+    }
+
+    #name{
+        position: absolute;
+        left: 110px;
+        top: 8px;
+        font-size: 15px;
+    }
+
+    #border{
+        position: absolute;
+        left: 110px;
+        border: .5px solid lightgray;
+        top: 45px;
+        width: calc(100% - 126px);
+    }
+
+    #price{
+        position: absolute;
+        top: 34px;
+        left: 110px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #span{
+        position: absolute;
+        bottom: 10px;
+        font-size: 10px;
+        letter-spacing: .5px;
+        right: 35px;
+    }
+
+    #shadow{
+        width: 95px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    #arrow{
+        width: 13px;
+        position: absolute;
+        right: -17px;
+        top: -1px;
+    }
+
+    #border-after{
+        position: absolute;
+        width: calc(100%);
+        border-bottom: .5px solid lightgray;
+        bottom: -13px;
+    }
+}
+
+.badge{
+    // border: 1px solid;
+    position: relative;
+    top: 50px;
+    left: 110px;
+    height: 28px;
+    width: calc(100% - 126px);
+}
+
+.badge img{
+    width: 20px;
+    margin-right: 5px;
+}

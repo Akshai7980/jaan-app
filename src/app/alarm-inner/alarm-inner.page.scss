@@ -1,0 +1,84 @@
+ion-content{
+    --background: #201c4e;
+}
+
+.header-div{
+    height: 40px;
+    color: #ffffff;
+    background: #363360;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+    font-size: 14px;
+
+    #cancel{
+        position: absolute;
+        left: 20px;
+        color: darkgray;
+    }
+
+    #save{
+        position: absolute;
+        right: 20px;
+        color: darkgray;
+    }
+}
+
+.alarm-options-div{
+    padding-left: 15px;
+    background: #363360;
+    padding-right: 30px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+.alarm-options{
+    --background: #363360;
+    color: white;
+    margin-bottom: -10px;
+}
+
+.alarm-options ion-icon{
+    width: 15px;
+}
+
+.alarm-options #name{
+    font-size: 15px;
+    color: darkgray;
+}
+
+.alarm-options #desc{
+    font-size: 10px;
+    color: darkgray;
+    position: absolute;
+    right: 35px;
+}
+
+.alarm-options ion-toggle{
+    position: absolute;
+    right: 0;
+    // top: 8px;
+    height: 21px;
+    --background: #535176;
+    --background-checked: mediumslateblue;
+    --handle-background-checked: #ffffff;
+    top: 4px;
+}
+
+.alarm-options-div #border{
+    border-bottom: .5px solid gray;
+    top: 4px;
+    width: calc(100% - 20px);
+    position: relative;
+    left: 15px;
+    z-index: 9999;
+}
+
+ion-datetime{
+    position: relative;
+    left: 45%;
+    transform: translateX(-50%);
+    font-size: 95px;
+}

@@ -1,0 +1,74 @@
+<ion-header style="z-index: 0;" *ngIf="userInfo">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+    <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+
+  <ion-toolbar>
+      
+    <app-explore-container headerColor="white"></app-explore-container>
+    
+    <img style="width: 100%;" src="../../assets/icon/profile-header.png">
+    <ion-avatar (click)="selectOption()" style="border: 4px solid #ffffff; background: #ffffff; position: absolute; bottom: 50px; width: 120px; height: 120px; left: calc(100% - 66%);">
+      <!-- <img src="../../assets/icon/dummy-profile.jpg"> -->
+      <img [src]="profileImage">
+    </ion-avatar>
+    <div class="profile-name"> {{ userInfo.name }} {{ userInfo.lastname }}
+      <img id="badge" [src]="'../../assets/icon/' + common.userType + '-user-badge.png'">
+      <!-- <img src="../../assets/icon/profile-edit.png"> -->
+    </div>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content *ngIf="userInfo">
+
+  <div style="font-size: 15px; color: #f3355b; text-align: center; margin-top: -4px;"> Time Left: {{common.userType === 'free' ? common.trialDuration : common.premiumDuration != 1 ? common.premiumDuration + ' days' : common.premiumDuration + ' day'}} </div>
+
+  <div style="width: 350px; padding-left: 48px; padding-right: 48px; margin: 15px auto;">
+    <div class="profile-details"><img src="../../assets/icon/profile-mail.png"> {{ userInfo.email }} </div>
+    <div class="profile-details" style="position: relative; top: -6px; left: 155px;"><img src="../../assets/icon/profile-location.png"> {{ userInfo.location }} </div>
+    <div class="profile-details"><img src="../../assets/icon/profile-mob.png"> {{ userInfo.phone }} </div>
+    <div class="profile-details" style="position: relative; top: -2px; left: 155px;"><img src="../../assets/icon/profile-user.png"> {{ currentYear - userInfo.dob }} Years Old </div>
+  </div>
+
+  <!-- <div style="text-align: center; font-size: 12px; margin-bottom: 15px; margin-top: -6px;"><img style="width: 15px; position: relative; top: 5px; left: -7px;" src="../../assets/icon/profile-pp.png"> Privacy Policy </div> -->
+
+  <div style="position: relative; padding-left: 10px;">
+    <!-- Levels Reached -->
+
+    <ion-item lines="none" class="levels" *ngFor="let l of levels">
+      <img id="img" [src]="l.image">
+      <span id="name">{{l.name}}</span>
+      <span id="pc-number">{{l.percentage}}</span>
+      <span id="pc">%</span>
+      <ion-progress-bar [style]="l.style" id="p-bar" [value]="l.percentage/100"></ion-progress-bar>
+    </ion-item>
+      
+  </div>
+
+  <div style="padding-left: 20px; padding-right: 20px;">
+    <ion-item *ngFor="let p of profile" class="profile" lines="full"  (click)="common.openPage(p.route, 4, '')">
+      <img slot="start" [src]="p.image">
+      <ion-label>{{p.name}}</ion-label>
+      <ion-icon name="chevron-forward" size="small" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item class="profile" lines="full" (click)="common.openPage('testimonials-add', 4, '')">
+      <ion-icon color="dark" style="width: 20px; margin-right: 12px; margin-left: -2px;" name="chatbubbles" size="large" slot="start"></ion-icon>
+      <ion-label> Add Testimonial </ion-label>
+      <ion-icon name="chevron-forward" size="small" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item class="profile" lines="full" (click)="logoutAlert()">
+      <ion-icon color="dark" style="width: 22px; margin-right: 12px; margin-left: -2px;" name="log-out" size="large" slot="start"></ion-icon>
+      <ion-label> Logout </ion-label>
+      <ion-icon name="chevron-forward" size="small" slot="end"></ion-icon>
+    </ion-item>
+    <ion-item *ngIf="common.userType==='premium'" class="profile" lines="full" (click)="logout('unsubscribe')">
+      <ion-icon color="danger" style="width: 20px; margin-right: 12px; margin-left: -2px;" name="trash" size="large" slot="start"></ion-icon>
+      <ion-label> Unsubscribe </ion-label>
+      <ion-icon name="chevron-forward" size="small" slot="end"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div style="margin-top: 15px;"></div>
+      
+</ion-content>

@@ -1,0 +1,105 @@
+<ion-header style="z-index: 0; margin-bottom: -3px;">
+  <ion-buttons slot="start" class="header-back-button" mode="md">
+      <ion-back-button style="color: white;" icon="chevron-back"></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <app-explore-container headerColor="white"></app-explore-container>
+    <img style="width: 100%; height: 55px;" src="../../assets/icon/grammar-header2.png">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="data" [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+
+  <video id="video" width="100%" height="180" controls controlsList="nodownload">
+    <source [src]="data.video" type="video/mp4">
+  </video>
+
+  <div class="heading" id="myHeader">{{data.levelname}}
+  </div>
+
+  <div *ngIf="data.description" class="sub-heading">Notes
+    <div id="content" [innerHTML]="data.description"></div>
+  </div>
+
+  <div *ngIf="data.examplesentence[0]" class="sub-heading">Examples</div>
+
+  <div *ngFor="let e of data.examplesentence">
+
+    <!-- <img class="img-targ" src="../../assets/icon/grammar-targ.png"> -->
+
+    <!-- <div class="example" *ngFor="let w of e.words">
+      
+      <div id="content1"> {{w.word}} </div>
+      <img *ngIf="w.meaning" id="img-arrow" src="../../assets/icon/grammar-arrow.png">
+
+      <div id="content2"> {{w.meaning}} </div>
+      <img *ngIf="w.sentencetype" id="img-arrow" style="left: 235px; top: -66px;" src="../../assets/icon/grammar-arrow.png">
+
+      <div id="content3"> {{w.sentencetype}} </div>
+
+    </div> -->
+
+    <!-- <div style="font-size: 11px; margin-left: 40px; margin-top: -51px;"> {{e.sentence}} ({{e.sentencemeaning}}) </div> -->
+    <div style="font-size: 13px; margin-left: 20px; margin-top: 10px;" [innerHtml]="e.sentence"></div>
+    <div style="border: 0.5px solid lightgray; margin-top: 10px; width: 320px; margin-left: 18px; margin-bottom: 2px;"></div>
+
+  </div>
+
+  <div *ngIf="data.image" class="image-content sub-heading">
+    <!-- <p id="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, exercitation ullamco laboris nisi ut aliquip ex.eniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p> -->
+    <!-- <img id="image" src="../../assets/icon/onam.jpg"> -->
+    <img id="image" [src]="data.image">
+
+    <div style="border: 0.5px solid lightgray; margin-top: 10px"></div>
+  </div>
+
+
+  <!-- <div class="exercise">
+
+    <p class="sub-heading" style="padding-left: 0;">Exercise</p>
+    <p id="sub-heading">Rearrange the words to make a perfect sentence</p>
+
+    <div id="number"> {{i+1}}/{{data.exercise.length}} </div>
+
+    <div id="ex-box">
+      
+      <img id="monkey" src="../../assets/icon/monkey.png">
+      <div id="inner-box" style="padding-left: 5px;">
+        
+        <div id="ex-div" style="margin-top: 5px;" *ngFor="let e of exerciseArray;">
+          <div id="ex-word"> {{e}} </div>
+        </div>
+
+        <div *ngIf="excercisAlert" [style]="excercisAlert=='Right answer !!'?'color: #16b320':'color:#d61a2e'" style="position: absolute; transform: translate(-50%, -50%); left: 50%; top: 45%;"> {{excercisAlert}} </div>
+
+        <ion-button (click)="checkExcercise()" id="small-button" style="--background: #16b320;" shape="round">Check</ion-button>
+        <ion-button (click)="resetExcercise()" id="small-button" style="--background: #d61a2e; top: 22px;" shape="round">Reset</ion-button>
+
+      </div>
+
+      <div style="width: 310px;">
+        <div id="ex-div" *ngFor="let e of data.exercise[i].shufflearray; let index = index">
+          <div (click)="selectWord(index, e)" id="ex-word"> {{e}} </div>
+        </div>
+      </div>
+
+      <div style="position: absolute; bottom: 8px; text-align: center; margin: 0 auto; width: calc(100% - 20px);">
+        <div>
+          <ion-button (click)="nextExercise()" [disabled]="(i+1) == data.exercise.length" id="next-button" shape="round">Next
+            <img id="next-arrow" src="../../assets/icon/level3-arrow.png">
+          </ion-button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-bottom: 10px;">
+      <ion-button style="--background: linear-gradient(#15a2e9, #0685c2); font-size: 12px; width: 211px; height: 32px;" shape="round">Click for Game</ion-button>
+    </div>
+
+  </div> -->
+
+  <!-- Worksheet / Games -->
+  <app-explore-container [aspectId]="common.levelId" aspectSubId="" [games]="games"  [worksheet]="worksheet"></app-explore-container>
+
+</ion-content>
